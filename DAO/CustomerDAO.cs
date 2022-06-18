@@ -1,21 +1,19 @@
+using Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace DAO
 {
     public class CustomerDAO
     {
-        private string connectionString = "";
-        private SqlConnection connection;
-        private SqlCommand command;
+        HTTiemChungDBContext context = new HTTiemChungDBContext();
 
-        public DataSet getCustomers()
+        public List<KhachHang> getCustomers()
         {
-            DataSet customerList = new DataSet();
-
-            // sql command
-
+            var customerList = context.KhachHangs.ToList();
             return customerList;
         }
     }
