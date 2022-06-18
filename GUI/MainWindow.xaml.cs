@@ -1,4 +1,5 @@
 ﻿using BUS;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,9 +31,11 @@ namespace GUI
 
         private void ButtonGetCustomers_Click(object sender, RoutedEventArgs e)
         {
-            var customerList = customerBus.getCustomerList();
+            List<KhachHang> customerList = customerBus.getCustomerList();
 
             // display
+            Name.Text = customerList[0].HoTen;
+            
         }
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Customers" HorizontalAlignment="Left" Height="30" Margin="205,74,0,0" VerticalAlignment="Top" Width="80" Click="ButtonGetCustomers_Click"/>
-
+        <Button Content="Customer" HorizontalAlignment="Left" Margin="282,114,0,0" VerticalAlignment="Top" Click="ButtonGetCustomers_Click"/>
+        <TextBlock Name="Name" HorizontalAlignment="Left" Margin="195,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
     </Grid>
 </Window>

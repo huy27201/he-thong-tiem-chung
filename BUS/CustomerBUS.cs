@@ -1,5 +1,7 @@
 using DAO;
+using Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace BUS
@@ -12,12 +14,9 @@ namespace BUS
         {
             customerDAO = new CustomerDAO();
         }
-        public DataSet getCustomerList()
+        public List<KhachHang> getCustomerList()
         {
             var customerList = customerDAO.getCustomers();
-
-            // logic
-
             return customerList;
         }
     }
