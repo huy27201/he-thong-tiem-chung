@@ -1,0 +1,45 @@
+﻿<Window x:Class="GUI.RegistrationFormList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="He Thong Tiem Chung" Height="600" Width="900"
+        ResizeMode="NoResize">
+    <StackPanel Orientation="Vertical">
+        <StackPanel Height="50" Orientation="Horizontal">
+            <Button
+                Margin="10,0,0,0"
+                Style="{StaticResource MaterialDesignFlatSecondaryButton}"
+                ToolTip="MaterialDesignFlatButton"
+                Content="Quay lại"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="DANH SÁCH PHIẾU ĐĂNG KÝ" 
+                TextAlignment="Center" 
+                Foreground="#1C2ECE"/> 
+        </StackPanel>
+        <StackPanel Margin="20,20,20,20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox
+                    x:Name="OutlinedComboBox"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="OS"
+                    ItemsSource="{Binding ShortStringList}">
+                    <ComboBoxItem Content="All" />
+                </ComboBox>      
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Window>
