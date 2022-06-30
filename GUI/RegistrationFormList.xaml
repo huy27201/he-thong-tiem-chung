@@ -4,17 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="He Thong Tiem Chung" Height="600" Width="900"
-        ResizeMode="NoResize">
+        Title="Hệ thống tiêm chủng" Height="600" Width="900"
+        ResizeMode="NoResize"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="16"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
     <StackPanel Orientation="Vertical">
-        <StackPanel Height="50" Orientation="Horizontal">
-            <Button
-                Margin="10,0,0,0"
-                Style="{StaticResource MaterialDesignFlatSecondaryButton}"
+        <StackPanel Margin="0,5,0,5"  Orientation="Horizontal">
+            <TextBlock
+                Margin="20,0,0,0"
+                Style="{StaticResource MaterialDesignBody1TextBlock}"
                 ToolTip="MaterialDesignFlatButton"
-                Content="Quay lại"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                Text="Quay lại"
+                FontWeight="Medium"
+                Foreground="#888"
+                TextDecorations="Underline"
+                Cursor="Hand"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock
@@ -23,7 +34,7 @@
                 TextAlignment="Center" 
                 Foreground="#1C2ECE"/> 
         </StackPanel>
-        <StackPanel Margin="20,20,20,20">
+        <StackPanel Margin="20,20,20,10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -33,13 +44,26 @@
                     <ColumnDefinition Width="7*"/>
                 </Grid.ColumnDefinitions>
                 <ComboBox
-                    x:Name="OutlinedComboBox"
-                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    materialDesign:HintAssist.Hint="OS"
-                    ItemsSource="{Binding ShortStringList}">
-                    <ComboBoxItem Content="All" />
-                </ComboBox>      
+                    Grid.Column="0"
+                    x:Name="RegistrationFormStatusComboBox"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"  
+                    Margin="10"
+                    materialDesign:HintAssist.Hint="Lọc theo tình trạng phiếu"
+                    ItemsSource="{Binding ShortStringList}" />
+                <TextBox 
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    Margin="10"
+                    Grid.Column="1"
+                    materialDesign:HintAssist.Hint="Tìm kiếm phiếu" />
             </Grid>
+        </StackPanel>
+        <StackPanel Margin="20,10,20,20">
+            <DataGrid
+                CanUserAddRows="False"
+                HeadersVisibility="All"
+                x:Name="RegistrationFormDataGrid">
+            </DataGrid>
         </StackPanel>
     </StackPanel>
 </Window>
