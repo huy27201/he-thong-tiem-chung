@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,30 @@ namespace GUI
     /// </summary>
     public partial class RegistrationFormList : Window
     {
+        private List<string> registrationFormStatusList;
+        private List<PhieuDangKy> registrationForms;
         public RegistrationFormList()
         {
             InitializeComponent();
+            registrationFormStatusList = new List<string>()
+            {
+                "Tất cả",
+                "Đã duyệt",
+                "Chưa duyệt"
+            };
+            RegistrationFormStatusComboBox.ItemsSource = registrationFormStatusList;
+
+            registrationForms = new List<PhieuDangKy>()
+            {
+                new PhieuDangKy()
+                {
+                    MaPhieuDk = "01",
+                    TongTien = 100000,
+                    MaKh = "01",
+                    NgayDk = new DateTime()
+                }
+            };
+            RegistrationFormDataGrid.ItemsSource = registrationForms;
         }
     }
 }
