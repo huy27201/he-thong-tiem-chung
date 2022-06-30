@@ -47,12 +47,14 @@
                     Grid.Column="0"
                     x:Name="RegistrationFormStatusComboBox"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"  
+                    Padding="10"
                     Margin="10"
                     materialDesign:HintAssist.Hint="Lọc theo tình trạng phiếu"
                     ItemsSource="{Binding ShortStringList}" />
                 <TextBox 
                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
                     VerticalAlignment="Top"
+                    Padding="10"
                     Margin="10"
                     Grid.Column="1"
                     materialDesign:HintAssist.Hint="Tìm kiếm phiếu" />
