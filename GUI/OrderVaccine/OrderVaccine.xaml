@@ -1,0 +1,21 @@
+﻿<Window x:Class="GUI.OrderVaccine.OrderVaccine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.OrderVaccine"
+        mc:Ignorable="d"
+        Title="OrderVaccine" Height="750" Width="800">
+    <Grid>
+        <Label Content="ĐẶT MUA VẮC XIN" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
+        <Label Content="CHỌN VẮC XIN" HorizontalAlignment="Left" Margin="40,84,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="40,375,40,155"/>
+        <Label Content="DANH SÁCH ĐẶT MUA" HorizontalAlignment="Left" Margin="40,328,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
+        <Button Content="Thêm vắc xin" HorizontalAlignment="Left" Margin="613,272,0,0" VerticalAlignment="Top" Click="_Click" Background="#FF2A3BD1"/>
+        <Label Content="Đánh dấu và chọn thêm vắc xin để thêm vắc xin vào danh sách đặt mua bên dưới" HorizontalAlignment="Left" Height="35" Margin="40,269,0,0" VerticalAlignment="Top" Width="451"/>
+        <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="613,592,0,0" VerticalAlignment="Top" Click="TiepTuc_Click" Width="115" Background="#FF2A3BD1"/>
+        <Button Content="Hủy" HorizontalAlignment="Left" Margin="508,592,0,0" VerticalAlignment="Top" Click="Huy_Click" RenderTransformOrigin="2.685,0.451" Width="68" Background="#FF7D7D7D"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="40,113,40,468"/>
+
+    </Grid>
+</Window>

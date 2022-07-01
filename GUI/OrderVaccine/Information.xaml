@@ -1,0 +1,21 @@
+﻿<Window x:Class="GUI.OrderVaccine.Information"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.OrderVaccine"
+        mc:Ignorable="d"
+        Title="Information" Height="450" Width="800">
+    <Grid>
+        <Label Content="ĐIỀN THÔNG TIN" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
+        <RadioButton Content="Quý khách là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,68,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Quý khách chưa là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="ĐĂNG NHẬP THÀNH VIÊN KHÁCH HÀNG" HorizontalAlignment="Left" Margin="34,140,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
+        <Label Content="DANH SÁCH ĐẶT MUA" HorizontalAlignment="Left" Margin="34,228,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
+        <Label Content="Nhập mã thẻ thành viên của quý khách" HorizontalAlignment="Left" Margin="34,174,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" FontStyle="Normal" Foreground="#FF05060C"/>
+        <TextBox HorizontalAlignment="Left" Margin="40,200,0,0" TextWrapping="Wrap" Text="Nhập mã thẻ thành viên của quý khách" VerticalAlignment="Top" Width="290" Background="#FFF0EAEA"/>
+        <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="411,196,0,0" VerticalAlignment="Top" Background="#FF2A3BD1" />
+        <DataGrid HorizontalAlignment="Left" Height="150" Margin="34,262,0,0" VerticalAlignment="Top" Width="724" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+    </Grid>
+</Window>
