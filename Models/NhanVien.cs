@@ -9,7 +9,6 @@ namespace Models
         {
             Liches = new HashSet<Lich>();
             PhieuDatHangs = new HashSet<PhieuDatHang>();
-            PhieuMuas = new HashSet<PhieuMua>();
         }
 
         public string MaNv { get; set; }
@@ -24,6 +23,5 @@ namespace Models
 
         public virtual ICollection<Lich> Liches { get; set; }
         public virtual ICollection<PhieuDatHang> PhieuDatHangs { get; set; }
-        public virtual ICollection<PhieuMua> PhieuMuas { get; set; }
     }
 }

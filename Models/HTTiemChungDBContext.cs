@@ -18,7 +18,8 @@ namespace Models
 
         public virtual DbSet<ChiTietDangKy> ChiTietDangKies { get; set; }
         public virtual DbSet<ChiTietPhieuMua> ChiTietPhieuMuas { get; set; }
-        public virtual DbSet<HoaDon> HoaDons { get; set; }
+        public virtual DbSet<CtphieuDatHang> CtphieuDatHangs { get; set; }
+        public virtual DbSet<CttraGop> CttraGops { get; set; }
         public virtual DbSet<HoaDonToanBo> HoaDonToanBos { get; set; }
         public virtual DbSet<HoaDonTraGop> HoaDonTraGops { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
@@ -72,7 +73,7 @@ namespace Models
             modelBuilder.Entity<ChiTietPhieuMua>(entity =>
             {
                 entity.HasKey(e => new { e.MaPhieuMua, e.MaVaccine })
-                    .HasName("PK__ChiTietP__AD5296A430E2E655");
+                    .HasName("PK__ChiTietP__AD5296A4F2644447");
 
                 entity.ToTable("ChiTietPhieuMua");
 
@@ -97,39 +98,60 @@ namespace Models
                     .HasConstraintName("fk_Vaccine_ChiTietPhieuMua");
             });
 
-            modelBuilder.Entity<HoaDon>(entity =>
+            modelBuilder.Entity<CtphieuDatHang>(entity =>
             {
-                entity.HasKey(e => e.MaHd)
-                    .HasName("PK__HoaDon__2725A6E02D0B63C1");
+                entity.HasKey(e => new { e.MaPhieuDh, e.MaPhieuMua })
+                    .HasName("PK__CTPhieuD__F9367365FFEA3ABE");
 
-                entity.ToTable("HoaDon");
+                entity.ToTable("CTPhieuDatHang");
+
+                entity.Property(e => e.MaPhieuDh)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("MaPhieuDH");
+
+                entity.Property(e => e.MaPhieuMua)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.MaPhieuDhNavigation)
+                    .WithMany(p => p.CtphieuDatHangs)
+                    .HasForeignKey(d => d.MaPhieuDh)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CTPhieuDatHang_PhieuDH");
+
+                entity.HasOne(d => d.MaPhieuDh1)
+                    .WithMany(p => p.CtphieuDatHangs)
+                    .HasForeignKey(d => d.MaPhieuDh)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CTPhieuDatHang_MaPhieuMua");
+            });
+
+            modelBuilder.Entity<CttraGop>(entity =>
+            {
+                entity.HasKey(e => new { e.MaHd, e.DotThanhToan })
+                    .HasName("PK__CTTraGop__758B6873083879B8");
+
+                entity.ToTable("CTTraGop");
 
                 entity.Property(e => e.MaHd)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("MaHD");
 
-                entity.Property(e => e.HinhThuc)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.NgayThanhToan).HasColumnType("datetime");
 
-                entity.Property(e => e.NgayThanhToan).HasColumnType("date");
-
-                entity.Property(e => e.PhieuDk)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("PhieuDK");
-
-                entity.HasOne(d => d.PhieuDkNavigation)
-                    .WithMany(p => p.HoaDons)
-                    .HasForeignKey(d => d.PhieuDk)
-                    .HasConstraintName("fk_PhieuDangKy_HoaDon");
+                entity.HasOne(d => d.MaHdNavigation)
+                    .WithMany(p => p.CttraGops)
+                    .HasForeignKey(d => d.MaHd)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_HoaDonTraGop_CTTraGop");
             });
 
             modelBuilder.Entity<HoaDonToanBo>(entity =>
             {
                 entity.HasKey(e => e.MaHoaDonToanBo)
-                    .HasName("PK__HoaDonTo__DE9820A42BF026F7");
+                    .HasName("PK__HoaDonTo__DE9820A43B8BFDF1");
 
                 entity.ToTable("HoaDonToanBo");
 
@@ -137,17 +159,25 @@ namespace Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.MaHoaDonToanBoNavigation)
-                    .WithOne(p => p.HoaDonToanBo)
-                    .HasForeignKey<HoaDonToanBo>(d => d.MaHoaDonToanBo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_HoaDon_HoaDonToanBo");
+                entity.Property(e => e.NgayTt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("NgayTT");
+
+                entity.Property(e => e.PhieuDk)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("PhieuDK");
+
+                entity.HasOne(d => d.PhieuDkNavigation)
+                    .WithMany(p => p.HoaDonToanBos)
+                    .HasForeignKey(d => d.PhieuDk)
+                    .HasConstraintName("fk_PhieuDangKy_HoaDonTB");
             });
 
             modelBuilder.Entity<HoaDonTraGop>(entity =>
             {
                 entity.HasKey(e => e.MaHoaDonTraGop)
-                    .HasName("PK__HoaDonTr__231D889DED603611");
+                    .HasName("PK__HoaDonTr__231D889D6B13E732");
 
                 entity.ToTable("HoaDonTraGop");
 
@@ -155,15 +185,19 @@ namespace Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SoTienThanhToanTungDot)
+                entity.Property(e => e.PhieuDk)
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("PhieuDK");
 
-                entity.HasOne(d => d.MaHoaDonTraGopNavigation)
-                    .WithOne(p => p.HoaDonTraGop)
-                    .HasForeignKey<HoaDonTraGop>(d => d.MaHoaDonTraGop)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_HoaDon_HoaDonTraGop");
+                entity.Property(e => e.PhuongThucTt)
+                    .HasMaxLength(50)
+                    .HasColumnName("PhuongThucTT");
+
+                entity.HasOne(d => d.PhieuDkNavigation)
+                    .WithMany(p => p.HoaDonTraGops)
+                    .HasForeignKey(d => d.PhieuDk)
+                    .HasConstraintName("fk_PhieuDangKy_HoaDonTG");
             });
 
             modelBuilder.Entity<KhachHang>(entity =>
@@ -203,7 +237,7 @@ namespace Models
             modelBuilder.Entity<Lich>(entity =>
             {
                 entity.HasKey(e => new { e.MaNv, e.Ngay, e.Ca })
-                    .HasName("PK__Lich__53AB0DEB3FB787BA");
+                    .HasName("PK__Lich__53AB0DEB8134FBD6");
 
                 entity.ToTable("Lich");
 
@@ -214,9 +248,7 @@ namespace Models
 
                 entity.Property(e => e.Ngay).HasColumnType("date");
 
-                entity.Property(e => e.LoaiLich)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.LoaiLich).HasMaxLength(50);
 
                 entity.HasOne(d => d.MaNvNavigation)
                     .WithMany(p => p.Liches)
@@ -302,7 +334,7 @@ namespace Models
             modelBuilder.Entity<PhieuDatHang>(entity =>
             {
                 entity.HasKey(e => e.MaPhieuDatHang)
-                    .HasName("PK__PhieuDat__2665F4A27FA88587");
+                    .HasName("PK__PhieuDat__2665F4A2A2D70F1F");
 
                 entity.ToTable("PhieuDatHang");
 
@@ -310,23 +342,10 @@ namespace Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.HoTen)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.MaPhieuMua)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Nvduyet)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("NVDuyet");
-
-                entity.HasOne(d => d.MaPhieuMuaNavigation)
-                    .WithMany(p => p.PhieuDatHangs)
-                    .HasForeignKey(d => d.MaPhieuMua)
-                    .HasConstraintName("fk_PhieuMua_PhieuDatHang");
 
                 entity.HasOne(d => d.NvduyetNavigation)
                     .WithMany(p => p.PhieuDatHangs)
@@ -344,23 +363,10 @@ namespace Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.HoTen).HasMaxLength(50);
-
                 entity.Property(e => e.MaKh)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("MaKH");
-
-                entity.Property(e => e.MaNv)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("MaNV");
-
-                entity.Property(e => e.Sdt)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("SDT")
-                    .IsFixedLength();
 
                 entity.Property(e => e.TrangThai).HasMaxLength(50);
 
@@ -368,11 +374,6 @@ namespace Models
                     .WithMany(p => p.PhieuMuas)
                     .HasForeignKey(d => d.MaKh)
                     .HasConstraintName("FK_PhieuMua_KhachHang");
-
-                entity.HasOne(d => d.MaNvNavigation)
-                    .WithMany(p => p.PhieuMuas)
-                    .HasForeignKey(d => d.MaNv)
-                    .HasConstraintName("FK_PhieuMua_NhanVien");
             });
 
             modelBuilder.Entity<Vaccine>(entity =>
@@ -401,6 +402,12 @@ namespace Models
 
                 entity.Property(e => e.Loai).HasMaxLength(50);
 
+                entity.HasOne(d => d.MaGoiVaccineNavigation)
+                    .WithOne(p => p.VaccineGoi)
+                    .HasForeignKey<VaccineGoi>(d => d.MaGoiVaccine)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_VaccineGoi_Vaccine");
+
                 entity.HasMany(d => d.MaVaccineLes)
                     .WithMany(p => p.MaGoiVaccines)
                     .UsingEntity<Dictionary<string, object>>(
@@ -428,6 +435,12 @@ namespace Models
                 entity.Property(e => e.MaVaccineLe)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.MaVaccineLeNavigation)
+                    .WithOne(p => p.VaccineLe)
+                    .HasForeignKey<VaccineLe>(d => d.MaVaccineLe)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_VaccineLe_Vaccine");
             });
 
             OnModelCreatingPartial(modelBuilder);

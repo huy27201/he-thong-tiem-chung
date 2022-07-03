@@ -7,7 +7,8 @@ namespace Models
     {
         public PhieuDangKy()
         {
-            HoaDons = new HashSet<HoaDon>();
+            HoaDonToanBos = new HashSet<HoaDonToanBo>();
+            HoaDonTraGops = new HashSet<HoaDonTraGop>();
         }
 
         public string MaPhieuDk { get; set; }
@@ -15,6 +16,7 @@ namespace Models
         public string MaKh { get; set; }
         public DateTime? NgayDk { get; set; }
 
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<HoaDonToanBo> HoaDonToanBos { get; set; }
+        public virtual ICollection<HoaDonTraGop> HoaDonTraGops { get; set; }
     }
 }
