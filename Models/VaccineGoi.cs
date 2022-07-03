@@ -13,6 +13,8 @@ namespace Models
         public string MaGoiVaccine { get; set; }
         public string Loai { get; set; }
 
+        public virtual Vaccine MaGoiVaccineNavigation { get; set; }
+
         public virtual ICollection<VaccineLe> MaVaccineLes { get; set; }
     }
 }

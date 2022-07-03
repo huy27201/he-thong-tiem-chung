@@ -5,10 +5,17 @@ namespace Models
 {
     public partial class HoaDonTraGop
     {
-        public string MaHoaDonTraGop { get; set; }
-        public int? DotThanhToan { get; set; }
-        public string SoTienThanhToanTungDot { get; set; }
+        public HoaDonTraGop()
+        {
+            CttraGops = new HashSet<CttraGop>();
+        }
 
-        public virtual HoaDon MaHoaDonTraGopNavigation { get; set; }
+        public string MaHoaDonTraGop { get; set; }
+        public int? SoDotThanhToan { get; set; }
+        public string PhuongThucTt { get; set; }
+        public string PhieuDk { get; set; }
+
+        public virtual PhieuDangKy PhieuDkNavigation { get; set; }
+        public virtual ICollection<CttraGop> CttraGops { get; set; }
     }
 }
