@@ -15,6 +15,8 @@ namespace Models
         public string TenVaccine { get; set; }
         public double? Gia { get; set; }
 
+        public virtual VaccineGoi VaccineGoi { get; set; }
+        public virtual VaccineLe VaccineLe { get; set; }
         public virtual ICollection<ChiTietDangKy> ChiTietDangKies { get; set; }
         public virtual ICollection<ChiTietPhieuMua> ChiTietPhieuMuas { get; set; }
     }

@@ -13,6 +13,8 @@ namespace Models
         public string MaVaccineLe { get; set; }
         public int? SoLuong { get; set; }
 
+        public virtual Vaccine MaVaccineLeNavigation { get; set; }
+
         public virtual ICollection<VaccineGoi> MaGoiVaccines { get; set; }
     }
 }

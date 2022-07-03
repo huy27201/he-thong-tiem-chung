@@ -5,12 +5,15 @@ namespace Models
 {
     public partial class PhieuDatHang
     {
-        public string MaPhieuDatHang { get; set; }
-        public string HoTen { get; set; }
-        public string Nvduyet { get; set; }
-        public string MaPhieuMua { get; set; }
+        public PhieuDatHang()
+        {
+            CtphieuDatHangs = new HashSet<CtphieuDatHang>();
+        }
 
-        public virtual PhieuMua MaPhieuMuaNavigation { get; set; }
+        public string MaPhieuDatHang { get; set; }
+        public string Nvduyet { get; set; }
+
         public virtual NhanVien NvduyetNavigation { get; set; }
+        public virtual ICollection<CtphieuDatHang> CtphieuDatHangs { get; set; }
     }
 }
