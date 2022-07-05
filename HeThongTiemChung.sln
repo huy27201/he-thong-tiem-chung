@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO", "DAO\DAO.csproj", "{F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BUS", "BUS\BUS.csproj", "{86D3AD6E-FA1D-4DEC-8304-B1E3A2F9F078}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{CE59B288-3B5D-4762-9E69-20C8E1A875B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{CE59B288-3B5D-4762-9E69-20C8E1A875B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{41C69A98-6D91-4697-B8D5-D6EA4AD9D35C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CE59B288-3B5D-4762-9E69-20C8E1A875B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE59B288-3B5D-4762-9E69-20C8E1A875B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE59B288-3B5D-4762-9E69-20C8E1A875B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41C69A98-6D91-4697-B8D5-D6EA4AD9D35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41C69A98-6D91-4697-B8D5-D6EA4AD9D35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41C69A98-6D91-4697-B8D5-D6EA4AD9D35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41C69A98-6D91-4697-B8D5-D6EA4AD9D35C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
