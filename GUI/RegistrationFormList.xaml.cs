@@ -1,4 +1,6 @@
-﻿using Models;
+﻿using BUS;
+using DTO;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +22,9 @@ namespace GUI
     /// </summary>
     public partial class RegistrationFormList : Window
     {
+        private PhieuDangKyBUS phieuDangKyBUS;
         private List<string> registrationFormStatusList;
-        private List<PhieuDangKy> registrationForms;
+        private List<PhieuDangKyDTO> registrationForms;
         public RegistrationFormList()
         {
             InitializeComponent();
@@ -33,17 +36,15 @@ namespace GUI
             };
             RegistrationFormStatusComboBox.ItemsSource = registrationFormStatusList;
 
-            registrationForms = new List<PhieuDangKy>()
-            {
-                new PhieuDangKy()
-                {
-                    MaPhieuDk = "01",
-                    TongTien = 100000,
-                    MaKh = "01",
-                    NgayDk = new DateTime()
-                }
-            };
+            registrationForms = PhieuDangKyBUS.loadDSPhieuDangKy();
             RegistrationFormDataGrid.ItemsSource = registrationForms;
+        }
+        private void LoadRegistrationFormDetail(object sender, MouseButtonEventArgs e)
+        {
+            string maPhieuDangKy = ((PhieuDangKyDTO)RegistrationFormDataGrid.SelectedItem).MaPhieuDangKy;
+            RegistrationFormDetail registrationFormDetailScreen = new RegistrationFormDetail(maPhieuDangKy);
+            registrationFormDetailScreen.Show();
+            Close();
         }
     }
 }

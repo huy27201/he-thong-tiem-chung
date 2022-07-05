@@ -19,9 +19,14 @@ namespace GUI
     /// </summary>
     public partial class RegistrationFormDetail : Window
     {
+        private string maPhieuDangKy;
         public RegistrationFormDetail()
         {
             InitializeComponent();
+        }
+        public RegistrationFormDetail(string maPhieuDangKy) : this()
+        {
+            this.maPhieuDangKy = maPhieuDangKy;
         }
 
         private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)
