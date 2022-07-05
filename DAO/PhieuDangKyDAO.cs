@@ -14,7 +14,7 @@ namespace DAO
 
         public static List<PhieuDangKyDTO> loadDSPhieuDangKy()
         {
-            var dsphieuDangKy = context.PhieuDangKies
+            var dsPhieuDangKy = context.PhieuDangKies
                             .Join(context.KhachHangs,
                                     phieuDangKy => phieuDangKy.MaKh,
                                     khachHang => khachHang.MaKh,
@@ -24,7 +24,25 @@ namespace DAO
                                         HoTen = khachHang.HoTen,
                                         NgayDangKy = phieuDangKy.NgayDk,
                                     });
-            return dsphieuDangKy.ToList();
+            return dsPhieuDangKy.ToList();
+        }
+        public static ThongTinPhieuDangKyDTO loadThongTinPhieuDangKy(string maPhieu)
+        {
+            var thongTinPhieuDangKy = context.PhieuDangKies
+                            .Join(context.KhachHangs,
+                                    phieuDangKy => phieuDangKy.MaKh,
+                                    khachHang => khachHang.MaKh,
+                                    (phieuDangKy, khachHang) => new ThongTinPhieuDangKyDTO
+                                    {
+                                        MaPhieuDangKy = phieuDangKy.MaPhieuDk,
+                                        MaKhachHang = khachHang.MaKh,
+                                        HoTen = khachHang.HoTen,
+                                        NgaySinh = khachHang.NgaySinh,
+                                        DiaChi = khachHang.DiaChi,
+                                        SoDt = khachHang.SoDt
+                                    })
+                            .Where(phieuDangKy => phieuDangKy.MaPhieuDangKy == maPhieu);
+            return thongTinPhieuDangKy.FirstOrDefault();
         }
     }
 }

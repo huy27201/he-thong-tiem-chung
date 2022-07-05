@@ -59,59 +59,101 @@
                     Grid.Column="0" 
                     Grid.ColumnSpan="2">
                     <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Padding="5"
-                    Text="Mã Khách hàng:" 
-                    Foreground="#1C2ECE" />
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Mã Khách hàng:" 
+                        Foreground="#1C2ECE" />
                     <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Padding="5"
-                    Name="TenKhachHang" />
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="{Binding MaKhachHang}"/>
                 </StackPanel>
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                <StackPanel
+                    Orientation="Horizontal"
                     Grid.Row="1" 
-                    Grid.Column="0" 
-                    Padding="5"
-                    Text="Họ tên" 
-                    Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Column="0">
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Họ tên:" 
+                        Foreground="#1C2ECE" />
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="{Binding HoTen}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Horizontal"
                     Grid.Row="1" 
-                    Grid.Column="1" 
-                    Padding="5"
-                    Text="Điện thoại" 
-                    Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Column="1">
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Điện thoại:" 
+                        Foreground="#1C2ECE" />
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="{Binding SoDt}"/>
+                </StackPanel>
+                <StackPanel 
+                    Orientation="Horizontal"
                     Grid.Row="2" 
-                    Grid.Column="0" 
-                    Padding="5"
-                    Text="Ngày tháng năm sinh" 
-                    Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Column="0" >
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Ngày tháng năm sinh:" 
+                        Foreground="#1C2ECE" />
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="{Binding NgaySinh}"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Horizontal"
                     Grid.Row="2" 
-                    Grid.Column="1" 
-                    Padding="5"
-                    Text="Giới tính" 
-                    Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Column="1" >
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Giới tính:" 
+                        Foreground="#1C2ECE" />
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Chưa biết"/>
+                </StackPanel>
+                <StackPanel 
+                    Orientation="Horizontal"
                     Grid.Row="3" 
                     Grid.Column="0" 
-                    Grid.ColumnSpan="2"
-                    Padding="5"
-                    Text="Địa chỉ" 
-                    Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.ColumnSpan="2">
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Địa chỉ:" 
+                        Foreground="#1C2ECE" />
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="{Binding DiaChi}"/>
+                </StackPanel>
+                <StackPanel 
+                    Orientation="Horizontal"
                     Grid.Row="4" 
                     Grid.Column="0" 
-                    Grid.ColumnSpan="2"
-                    Padding="5"
-                    Text="Giám hộ" 
-                    Foreground="#1C2ECE" />
+                    Grid.ColumnSpan="2">
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Giám hộ:" 
+                        Foreground="#1C2ECE" />
+                    <TextBlock 
+                        Style="{StaticResource MaterialDesignBody1TextBlock}"
+                        Padding="5"
+                        Text="Chưa biết"/>
+                </StackPanel>
             </Grid>
         </StackPanel>
         <StackPanel Margin="50,10,50,10">

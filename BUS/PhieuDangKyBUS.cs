@@ -11,14 +11,13 @@ namespace BUS
 {
     public class PhieuDangKyBUS
     {
-
-        public PhieuDangKyBUS()
-        {
-
-        }
         public static List<PhieuDangKyDTO> loadDSPhieuDangKy()
         {
             return PhieuDangKyDAO.loadDSPhieuDangKy();
+        }
+        public static ThongTinPhieuDangKyDTO loadThongTinPhieuDangKy(string maPhieu)
+        {
+            return PhieuDangKyDAO.loadThongTinPhieuDangKy(maPhieu);
         }
     }
 }

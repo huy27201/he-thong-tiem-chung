@@ -22,7 +22,6 @@ namespace GUI
     /// </summary>
     public partial class RegistrationFormList : Window
     {
-        private PhieuDangKyBUS phieuDangKyBUS;
         private List<string> registrationFormStatusList;
         private List<PhieuDangKyDTO> registrationForms;
         public RegistrationFormList()
