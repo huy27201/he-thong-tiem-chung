@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,42 @@ namespace GUI.OrderVaccine
     /// </summary>
     public partial class Information : Window
     {
+        private List<ChiTietPhieuMua> ListChiTietPhieuMua;
+        private string MaPhieuMua;
         public Information()
         {
             InitializeComponent();
+        }
+        public Information(List<ChiTietPhieuMua> listctphieumua, string maphieumua)
+        {
+            ListChiTietPhieuMua = listctphieumua;
+            MaPhieuMua = maphieumua;
+        }
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            InformationOther form = new InformationOther();
+            form.Show();
+            Close();
+        }
+
+        private void btnTiepTuc_Click(object sender, RoutedEventArgs e)
+        {
+            string makh = textboxMAKH.Text;
+            CustomerBUS customerbus = new CustomerBUS();
+            if(customerbus.checkMAKH(makh))
+            {
+                MessageBox.Show("Ma khach hang hop le!");
+                PhieuMua pm = new PhieuMua()
+                {
+                    MaPhieuMua = MaPhieuMua,
+                    TrangThai = "Đang chờ",
+                    MaKh = makh
+                };
+
+                WaitForApprove form = new WaitForApprove(pm);
+                form.Show();
+                Close();
+            }
         }
     }
 }

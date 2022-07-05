@@ -9,13 +9,27 @@
     <Grid>
         <Label Content="ĐẶT MUA VẮC XIN" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <Label Content="CHỌN VẮC XIN" HorizontalAlignment="Left" Margin="40,84,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="40,375,40,155"/>
+        <DataGrid x:Name="ListVaccineToBuyDataGrid" d:ItemsSource="{Binding}" Margin="40,375,40,155">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã vaccine"  Binding="{Binding MaVaccine}"/>
+                <DataGridTextColumn Header="Tên vaccine/Gói vaccine" Binding="{Binding TenVaccine}" />
+                <DataGridTextColumn Header="Đơn giá" Binding="{Binding Price}" />
+                <DataGridTextColumn Header="Lượng" Binding="{Binding Quantily}" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="DANH SÁCH ĐẶT MUA" HorizontalAlignment="Left" Margin="40,328,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
-        <Button Content="Thêm vắc xin" HorizontalAlignment="Left" Margin="613,272,0,0" VerticalAlignment="Top" Click="_Click" Background="#FF2A3BD1"/>
+        <Button Content="Thêm vắc xin" HorizontalAlignment="Left" Margin="613,272,0,0" VerticalAlignment="Top" Click="ThemVaccine_Click" Background="#FF2A3BD1"/>
         <Label Content="Đánh dấu và chọn thêm vắc xin để thêm vắc xin vào danh sách đặt mua bên dưới" HorizontalAlignment="Left" Height="35" Margin="40,269,0,0" VerticalAlignment="Top" Width="451"/>
         <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="613,592,0,0" VerticalAlignment="Top" Click="TiepTuc_Click" Width="115" Background="#FF2A3BD1"/>
         <Button Content="Hủy" HorizontalAlignment="Left" Margin="508,592,0,0" VerticalAlignment="Top" Click="Huy_Click" RenderTransformOrigin="2.685,0.451" Width="68" Background="#FF7D7D7D"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="40,113,40,468"/>
+        <DataGrid x:Name="ListVaccineDataGrid" d:ItemsSource="{Binding}" Margin="40,113,40,468" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã vaccine"  Binding="{Binding MaVaccine}"/>
+                <DataGridTextColumn Header="Tên vaccine/Gói vaccine" Binding="{Binding TenVaccine}" />
+                <DataGridTextColumn Header="Loại" Binding="{Binding Type}" />
+                <DataGridCheckBoxColumn Header=""  Binding="{Binding checkbox}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

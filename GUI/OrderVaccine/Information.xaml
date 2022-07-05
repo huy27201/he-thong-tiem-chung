@@ -9,12 +9,12 @@
     <Grid>
         <Label Content="ĐIỀN THÔNG TIN" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <RadioButton Content="Quý khách là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,68,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Quý khách chưa là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Quý khách chưa là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <Label Content="ĐĂNG NHẬP THÀNH VIÊN KHÁCH HÀNG" HorizontalAlignment="Left" Margin="34,140,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <Label Content="DANH SÁCH ĐẶT MUA" HorizontalAlignment="Left" Margin="34,228,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <Label Content="Nhập mã thẻ thành viên của quý khách" HorizontalAlignment="Left" Margin="34,174,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" FontStyle="Normal" Foreground="#FF05060C"/>
-        <TextBox HorizontalAlignment="Left" Margin="40,200,0,0" TextWrapping="Wrap" Text="Nhập mã thẻ thành viên của quý khách" VerticalAlignment="Top" Width="290" Background="#FFF0EAEA"/>
-        <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="411,196,0,0" VerticalAlignment="Top" Background="#FF2A3BD1" />
+        <TextBox x:Name="textboxMAKH" HorizontalAlignment="Left" Margin="40,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Background="#FFF0EAEA"/>
+        <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="411,196,0,0" VerticalAlignment="Top" Background="#FF2A3BD1" Click="btnTiepTuc_Click" />
         <DataGrid HorizontalAlignment="Left" Height="150" Margin="34,262,0,0" VerticalAlignment="Top" Width="724" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
     </Grid>
