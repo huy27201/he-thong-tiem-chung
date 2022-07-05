@@ -9,7 +9,7 @@ namespace DAO
 {
     public class CustomerDAO
     {
-        HTTiemChungDBContext context = new HTTiemChungDBContext();
+        private HTTiemChungDBContext context = new HTTiemChungDBContext();
 
         public List<KhachHang> getCustomers()
         {

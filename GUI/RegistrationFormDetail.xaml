@@ -53,14 +53,21 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                <StackPanel 
+                    Orientation="Horizontal"
                     Grid.Row="0" 
                     Grid.Column="0" 
-                    Grid.ColumnSpan="2"
+                    Grid.ColumnSpan="2">
+                    <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                     Padding="5"
-                    Text="Mã Khách hàng" 
+                    Text="Mã Khách hàng:" 
                     Foreground="#1C2ECE" />
+                    <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Padding="5"
+                    Name="TenKhachHang" />
+                </StackPanel>
                 <TextBlock 
                     Style="{StaticResource MaterialDesignBody1TextBlock}"
                     Grid.Row="1" 

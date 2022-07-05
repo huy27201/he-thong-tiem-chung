@@ -73,7 +73,7 @@ namespace Models
             modelBuilder.Entity<ChiTietPhieuMua>(entity =>
             {
                 entity.HasKey(e => new { e.MaPhieuMua, e.MaVaccine })
-                    .HasName("PK__ChiTietP__AD5296A4F2644447");
+                    .HasName("PK__ChiTietP__AD5296A4BCFDC8C0");
 
                 entity.ToTable("ChiTietPhieuMua");
 
@@ -101,7 +101,7 @@ namespace Models
             modelBuilder.Entity<CtphieuDatHang>(entity =>
             {
                 entity.HasKey(e => new { e.MaPhieuDh, e.MaPhieuMua })
-                    .HasName("PK__CTPhieuD__F9367365FFEA3ABE");
+                    .HasName("PK__CTPhieuD__F93673651B60C027");
 
                 entity.ToTable("CTPhieuDatHang");
 
@@ -130,7 +130,7 @@ namespace Models
             modelBuilder.Entity<CttraGop>(entity =>
             {
                 entity.HasKey(e => new { e.MaHd, e.DotThanhToan })
-                    .HasName("PK__CTTraGop__758B6873083879B8");
+                    .HasName("PK__CTTraGop__758B687316E51591");
 
                 entity.ToTable("CTTraGop");
 
@@ -151,7 +151,7 @@ namespace Models
             modelBuilder.Entity<HoaDonToanBo>(entity =>
             {
                 entity.HasKey(e => e.MaHoaDonToanBo)
-                    .HasName("PK__HoaDonTo__DE9820A43B8BFDF1");
+                    .HasName("PK__HoaDonTo__DE9820A4FFEE0D62");
 
                 entity.ToTable("HoaDonToanBo");
 
@@ -177,7 +177,7 @@ namespace Models
             modelBuilder.Entity<HoaDonTraGop>(entity =>
             {
                 entity.HasKey(e => e.MaHoaDonTraGop)
-                    .HasName("PK__HoaDonTr__231D889D6B13E732");
+                    .HasName("PK__HoaDonTr__231D889DEE1D24EE");
 
                 entity.ToTable("HoaDonTraGop");
 
@@ -237,7 +237,7 @@ namespace Models
             modelBuilder.Entity<Lich>(entity =>
             {
                 entity.HasKey(e => new { e.MaNv, e.Ngay, e.Ca })
-                    .HasName("PK__Lich__53AB0DEB8134FBD6");
+                    .HasName("PK__Lich__53AB0DEB3BDED506");
 
                 entity.ToTable("Lich");
 
@@ -334,7 +334,7 @@ namespace Models
             modelBuilder.Entity<PhieuDatHang>(entity =>
             {
                 entity.HasKey(e => e.MaPhieuDatHang)
-                    .HasName("PK__PhieuDat__2665F4A2A2D70F1F");
+                    .HasName("PK__PhieuDat__2665F4A2C04908C1");
 
                 entity.ToTable("PhieuDatHang");
 
