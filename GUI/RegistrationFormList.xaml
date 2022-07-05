@@ -63,7 +63,11 @@
         <StackPanel Margin="20,10,20,20">
             <DataGrid
                 CanUserAddRows="False"
-                HeadersVisibility="All"
+                IsReadOnly="True"
+                CanUserResizeColumns="False"
+                ColumnWidth="Auto"
+                CanUserReorderColumns="False"
+                GridLinesVisibility="All"
                 x:Name="RegistrationFormDataGrid">
             </DataGrid>
         </StackPanel>

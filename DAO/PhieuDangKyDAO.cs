@@ -11,7 +11,7 @@ namespace DAO
     {
         private static HTTiemChungDBContext context = new HTTiemChungDBContext();
 
-        public static List<PhieuDangKy> loadThongTinPhieuDangKy()
+        public static void loadThongTinPhieuDangKy()
         {
 
         }
