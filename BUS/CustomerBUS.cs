@@ -19,5 +19,17 @@ namespace BUS
             var customerList = customerDAO.getCustomers();
             return customerList;
         }
+        public static bool createCustomerBUS(KhachHang KH)
+        {
+            if (CustomerDAO.InsertCustomerDAO(KH) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static void updateNguoiGiamHo(KhachHang kh, string magh)
+        {
+            CustomerDAO.updateNguoiGiamHoDAO(kh, magh);
+        }
     }
 }

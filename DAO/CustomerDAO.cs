@@ -16,5 +16,41 @@ namespace DAO
             var customerList = context.KhachHangs.ToList();
             return customerList;
         }
-    }
+        public static string InsertCustomerDAO(KhachHang cus)
+        {
+            HTTiemChungDBContext context = new HTTiemChungDBContext();
+            int count = context.KhachHangs.ToList().Count();
+            string makh = string.Concat("ID0", count.ToString());
+            cus.MaKh = makh;
+            context.KhachHangs.Add(cus);
+            context.SaveChanges();
+            if (context.KhachHangs.Find(makh) != null)
+            {
+                return makh;
+            }
+            return null;
+        }
+        public static bool updateNguoiGiamHoDAO(KhachHang kh, string magh)
+        {
+            using (var context = new HTTiemChungDBContext())
+            {
+                var temp = context.KhachHangs.SingleOrDefault(b => b.MaKh == kh.MaKh);
+                if (temp != null)
+                {
+                    temp.GiamHo = magh;
+                    try
+                    {
+                        context.SaveChanges();
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+            }
+            return false;
+        }
+    
+}
 }
