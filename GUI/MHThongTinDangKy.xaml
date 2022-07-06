@@ -1,0 +1,228 @@
+﻿<Window x:Class="GUI.FormSignUpVaccine_CustomerInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Hệ thống tiêm chủng" Height="600" Width="900"
+        ResizeMode="NoResize"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="16"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <StackPanel Orientation="Vertical">
+        <StackPanel Margin="0,5,0,5"  Orientation="Horizontal">
+            <TextBlock
+                Margin="20,0,0,0"
+                Style="{StaticResource MaterialDesignBody1TextBlock}"
+                ToolTip="MaterialDesignFlatButton"
+                Text="Quay lại"
+                FontWeight="Medium"
+                Foreground="#888"
+                TextDecorations="Underline"
+                Cursor="Hand"
+                MouseLeftButtonDown="ReturnToRegistrationFormList"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="THÔNG TIN PHIẾU ĐĂNG KÝ" 
+                TextAlignment="Center" 
+                Foreground="#1C2ECE"/>
+        </StackPanel>
+        <StackPanel Margin="50,5,50,10" Height="250">
+            <TextBlock
+                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                Text="Thông tin người tiêm" 
+                FontWeight="Bold"
+                Padding="5"/>
+            <Grid Height="240">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="0" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="3"
+                    Padding="4"
+                    Text="Họ tên" 
+                    Foreground="#1C2ECE" />
+                <TextBox x:Name="txtHoTen"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    materialDesign:HintAssist.Hint="Nhập họ tên"
+                    Padding="8"
+                    Margin="10,5,10,5"/>
+                <TextBox x:Name="MaKH"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Grid.Row="1" 
+                    Grid.Column="2" 
+                    materialDesign:HintAssist.Hint="Nhập mã khách hàng"
+                    Padding="8"
+                    Margin="10,5,10,5"/>
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="0" 
+                    Grid.Column="2" 
+                    Padding="5"
+                    Text="Mã khách hàng" 
+                    Foreground="#1C2ECE" />
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="2" 
+                    Grid.Column="0" 
+                    Padding="5"
+                    Text="Ngày tháng năm sinh" 
+                    Foreground="#1C2ECE" Grid.ColumnSpan="2" />
+
+                <TextBox x:Name="txtDiaChi"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Grid.Row="5" 
+                    Grid.Column="0"
+                    materialDesign:HintAssist.Hint="Nhập họ tên"
+                    Padding="8"
+                    Margin="10,5,10,5"
+                />
+                <TextBox x:Name="txtSDT"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Grid.Row="3" 
+                    Grid.Column="1" 
+                    materialDesign:HintAssist.Hint="Nhập số điện thoại"
+                    Padding="8"
+                    Margin="10,5,10,5"
+                />
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="4" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="3"
+                    Padding="5"
+                    Text="Địa chỉ" 
+                    Foreground="#1C2ECE" />
+                <DatePicker x:Name="datePickerDOB"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    IsDropDownOpen="False"
+                    Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                    Padding="8"
+                    Margin="10,3,10,3"
+                />
+
+
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="2" 
+                    Grid.Column="2" 
+                    Grid.ColumnSpan="3"
+                    Padding="5"
+                    Text="Số điện thoại" 
+                    Foreground="#1C2ECE" />
+
+            </Grid>
+
+        </StackPanel>
+        <StackPanel Margin="50,-20,50,10">
+            <TextBlock
+                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                Text="Người giám hộ" 
+                FontWeight="Bold"
+                Padding="5"/>
+            <Grid Height="170">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="127*" />
+                    <ColumnDefinition Width="273*"/>
+                    <ColumnDefinition Width="400*" />
+
+                </Grid.ColumnDefinitions>
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    Padding="5"
+                    Text="Họ tên" 
+                    Foreground="#1C2ECE" Grid.ColumnSpan="2" Margin="0,0,0,37" Grid.RowSpan="2" />
+                <TextBox x:Name="txtTenGHo"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Grid.Row="1" 
+                    Grid.Column="0"
+                    materialDesign:HintAssist.Hint="Nhập họ tên"
+                    Padding="8"
+                    Margin="10,4,10,5" Grid.ColumnSpan="2"
+                    />
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="2" 
+                    Grid.Column="0" 
+                    Padding="5"
+                    Text="Số điện thoại" 
+                    Foreground="#1C2ECE" Grid.ColumnSpan="2" />
+                <TextBox x:Name="txtSDTGH"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Grid.Row="3" 
+                    Grid.Column="0"
+                    materialDesign:HintAssist.Hint="Nhập số điện thoại"
+                    Padding="8"
+                    Margin="10,6,10,5" Grid.ColumnSpan="2"
+                    />
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="0" 
+                    Grid.Column="2" 
+                    Padding="5"
+                    Text="Quan hệ với người tiêm" 
+                    Foreground="#1C2ECE" Margin="0,0,0,37" Grid.RowSpan="2" />
+                <TextBox x:Name="txtQuanHe"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    Grid.Row="1" 
+                    Grid.Column="2"
+                    materialDesign:HintAssist.Hint="Nhập quan hệ"
+                    Padding="8"
+                    Margin="10,4,10,5"
+                    />
+            </Grid>
+        </StackPanel>
+
+        <Button x:Name="BtnXacNhanThongTin"
+                Click="BtnXacNhanThongTin_Click"
+                HorizontalAlignment="Right" Margin="50,-120,55,-125"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                Content="Xác nhận"
+                Background="#1C2ECE"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+        <Button
+                
+                HorizontalAlignment="Left" Margin="600,-15,20,60"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                Content="Hủy"
+                Background="#888888"
+                x:Name="btnHuy"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" RenderTransformOrigin="0.568,-0.383" />
+
+
+    </StackPanel>
+</Window>

@@ -22,6 +22,10 @@ namespace GUI
     /// </summary>
     public partial class RegistrationFormList : Window
     {
+<<<<<<< HEAD:GUI/MHChiTietPhieuDangKy.xaml.cs
+=======
+        private BUS.PhieuDangKy phieuDangKyBUS;
+>>>>>>> a009f39550d48c59a980ccb807379bec8a358cd0:GUI/RegistrationFormList.xaml.cs
         private List<string> registrationFormStatusList;
         private List<PhieuDangKyDTO> registrationForms;
         public RegistrationFormList()
