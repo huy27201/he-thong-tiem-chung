@@ -53,9 +53,12 @@ namespace GUI.OrderVaccine
 
         private void TiepTuc_Click(object sender, RoutedEventArgs e)
         {
-            Information form = new Information(ListChiTietPhieuMua, MaPhieuMua);
-            form.Show();
-            Close();
+            foreach (var item in ListVaccineDataGrid.ItemsSource)
+            {
+            }
+            //Information form = new Information(ListChiTietPhieuMua, MaPhieuMua);
+            //form.Show();
+            //Close();
         }
 
         private void ThemVaccine_Click(object sender, RoutedEventArgs e)
