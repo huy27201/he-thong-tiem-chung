@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="Information" Height="450" Width="800">
     <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Margin="0,5,0,5"  Orientation="Horizontal">
+                <TextBlock
+                Margin="20,0,0,0"
+                Style="{StaticResource MaterialDesignBody1TextBlock}"
+                ToolTip="MaterialDesignFlatButton"
+                Text="Quay lại"
+                FontWeight="Medium"
+                Foreground="#888"
+                TextDecorations="Underline"
+                Cursor="Hand"
+                MouseLeftButtonDown="ReturnToOderVaccine"/>
+            </StackPanel>
+        </StackPanel>
         <Label Content="ĐIỀN THÔNG TIN" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <RadioButton Content="Quý khách là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,68,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="Quý khách chưa là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>

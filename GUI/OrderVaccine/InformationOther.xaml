@@ -7,19 +7,33 @@
         mc:Ignorable="d"
         Title="InformationOther" Height="600" Width="800">
     <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Margin="0,5,0,5"  Orientation="Horizontal">
+                <TextBlock
+                Margin="20,0,0,0"
+                Style="{StaticResource MaterialDesignBody1TextBlock}"
+                ToolTip="MaterialDesignFlatButton"
+                Text="Quay lại"
+                FontWeight="Medium"
+                Foreground="#888"
+                TextDecorations="Underline"
+                Cursor="Hand"
+                MouseLeftButtonDown="ReturnToOderVaccine"/>
+            </StackPanel>
+        </StackPanel>
         <Label Content="ĐIỀN THÔNG TIN" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
-        <RadioButton Content="Quý khách là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,68,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Quý khách là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,68,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <RadioButton Content="Quý khách chưa là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top"/>
         <Label Content="THÔNG TIN NGƯỜI ĐẶT MUA" HorizontalAlignment="Left" Margin="34,140,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <Label Content="DANH SÁCH ĐẶT MUA" HorizontalAlignment="Left" Margin="34,392,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
-        <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="412,347,0,0" VerticalAlignment="Top" Background="#FF2A3BD1" />
+        <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="412,347,0,0" VerticalAlignment="Top" Background="#FF2A3BD1" Click="btnTiepTuc_Click" />
         <DataGrid HorizontalAlignment="Left" Height="150" Margin="34,421,0,0" VerticalAlignment="Top" Width="756" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <Label Content="Họ và tên" HorizontalAlignment="Left" Margin="58,175,0,0" VerticalAlignment="Top"/>
         <Label Content="Ngày sinh" HorizontalAlignment="Left" Margin="58,246,0,0" VerticalAlignment="Top"/>
         <Label Content="Số điện thoại" HorizontalAlignment="Left" Margin="58,322,0,0" VerticalAlignment="Top"/>
         <Label Content="Giới tính" HorizontalAlignment="Left" Margin="343,175,0,0" VerticalAlignment="Top"/>
         <Label Content="Địa chỉ" HorizontalAlignment="Left" Margin="343,246,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="58,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Background="#FFF0EAEA"/>
+        <TextBox x:Name="hoten" HorizontalAlignment="Left" Margin="58,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Background="#FFF0EAEA"/>
         <TextBox HorizontalAlignment="Left" Margin="58,351,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Background="#FFF0EAEA" RenderTransformOrigin="0.498,-0.511"/>
         <TextBox HorizontalAlignment="Left" Margin="343,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Background="#FFF0EAEA"/>
         <DatePicker HorizontalAlignment="Left" Margin="58,275,0,0" Width="220" VerticalAlignment="Top" Background="#FFF0EAEA"/>

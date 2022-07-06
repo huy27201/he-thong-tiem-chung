@@ -43,6 +43,8 @@ namespace GUI.OrderVaccine
         {
             string makh = textboxMAKH.Text;
             CustomerBUS customerbus = new CustomerBUS();
+            PhieuMuaBUS phieumuabus = new PhieuMuaBUS();
+            //check makh
             if(customerbus.checkMAKH(makh))
             {
                 MessageBox.Show("Ma khach hang hop le!");
@@ -52,11 +54,23 @@ namespace GUI.OrderVaccine
                     TrangThai = "Đang chờ",
                     MaKh = makh
                 };
-
+                //update phieumua
+                phieumuabus.updatePhieuMua(pm);
+                //move on form WaitForApprove
                 WaitForApprove form = new WaitForApprove(pm);
                 form.Show();
                 Close();
             }
+            else
+            {
+                MessageBox.Show("Ma khach hang khong hop le!");
+            }
+        }
+        private void ReturnToOderVaccine(object sender, MouseButtonEventArgs e)
+        {
+            OrderVaccine orderVaccine = new OrderVaccine(ListChiTietPhieuMua, MaPhieuMua);
+            orderVaccine.Show();
+            Close();
         }
     }
 }

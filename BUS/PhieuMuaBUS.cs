@@ -21,9 +21,21 @@ namespace BUS
             var phieumuaList = phieumuaDAO.getPhieuMuas();
             return phieumuaList;
         }
+        public void addPhieuMua(PhieuMua pm)
+        {
+            phieumuaDAO.addPhieuMua(pm);
+        }
         public PhieuMua findPhieuMua(string maPhieuMua)
         {
             return phieumuaDAO.findPhieuMua(maPhieuMua);
+        }
+        public void updatePhieuMua(PhieuMua phieuMua)
+        {
+            phieumuaDAO.updatePhieuMua(phieuMua);
+        }
+        public void deletePhieuMua(string maPhieuMua)
+        {
+            phieumuaDAO.deletePhieuMua(maPhieuMua);
         }
     }
 }

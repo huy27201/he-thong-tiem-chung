@@ -9,12 +9,12 @@
     <Grid>
         <Label Content="ĐẶT MUA VẮC XIN" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <Label Content="CHỌN VẮC XIN" HorizontalAlignment="Left" Margin="40,84,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
-        <DataGrid x:Name="ListVaccineToBuyDataGrid" d:ItemsSource="{Binding}" Margin="40,375,40,155">
+        <DataGrid x:Name="ListVaccineToBuyDataGrid" d:ItemsSource="{Binding ListChiTietPhieuMua}" Margin="40,375,40,155">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã vaccine"  Binding="{Binding MaVaccine}"/>
                 <DataGridTextColumn Header="Tên vaccine/Gói vaccine" Binding="{Binding TenVaccine}" />
-                <DataGridTextColumn Header="Đơn giá" Binding="{Binding Price}" />
-                <DataGridTextColumn Header="Lượng" Binding="{Binding Quantily}" />
+                <DataGridTextColumn Header="Đơn giá" Binding="{Binding Gia}" />
+                <DataGridTextColumn Header="Lượng" Binding="{Binding SoLuong}" />
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="DANH SÁCH ĐẶT MUA" HorizontalAlignment="Left" Margin="40,328,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>

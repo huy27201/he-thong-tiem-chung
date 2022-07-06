@@ -1,4 +1,5 @@
 ﻿using DAO;
+using DTO;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace BUS
         {
             vaccineDAO = new VaccineDAO();
         }
-        public List<Vaccine> getVaccines()
+        public List<VaccineDTO> getVaccines()
         {
             var vaccineList = vaccineDAO.getVaccines();
             return vaccineList;

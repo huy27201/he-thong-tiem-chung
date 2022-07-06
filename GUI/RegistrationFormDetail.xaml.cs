@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,18 @@ namespace GUI
     /// </summary>
     public partial class RegistrationFormDetail : Window
     {
+        private string maPhieuDangKy;
+        private ThongTinPhieuDangKyDTO thongTinPhieuDangKy;
         public RegistrationFormDetail()
         {
             InitializeComponent();
+        }
+        public RegistrationFormDetail(string maPhieuDangKy) : this()
+        {
+            this.maPhieuDangKy = maPhieuDangKy;
+            thongTinPhieuDangKy = PhieuDangKyBUS.loadThongTinPhieuDangKy(maPhieuDangKy);
+            DataContext = thongTinPhieuDangKy;
+
         }
 
         private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)

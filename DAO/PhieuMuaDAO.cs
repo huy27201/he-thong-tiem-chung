@@ -25,5 +25,17 @@ namespace DAO
         {
             return context.PhieuMuas.Find(maPhieuMua);
         }
+        public void updatePhieuMua(PhieuMua phieuMua)
+        {
+            var std = context.PhieuMuas.Find(phieuMua.MaPhieuMua);
+            std.TrangThai = phieuMua.TrangThai;
+            std.MaKh = phieuMua.MaKh;
+            context.SaveChanges();
+        }
+        public void deletePhieuMua(string maPhieuMua)
+        {
+            var std = context.PhieuMuas.Find(maPhieuMua);
+            context.PhieuMuas.Remove(std);
+        }
     }
 }

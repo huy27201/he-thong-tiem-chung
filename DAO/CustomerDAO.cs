@@ -9,12 +9,17 @@ namespace DAO
 {
     public class CustomerDAO
     {
-        HTTiemChungDBContext context = new HTTiemChungDBContext();
+        private HTTiemChungDBContext context = new HTTiemChungDBContext();
 
         public List<KhachHang> getCustomers()
         {
             var customerList = context.KhachHangs.ToList();
             return customerList;
+        }
+        public void addCustomers(KhachHang kh)
+        {
+            context.KhachHangs.Add(kh);
+            context.SaveChanges();
         }
         public KhachHang findCustomers(string MaKH)
         {

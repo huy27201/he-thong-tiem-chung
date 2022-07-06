@@ -30,5 +30,9 @@ namespace BUS
                 return false;
             }
         }
+        public void addCustomers(KhachHang kh)
+        {
+            customerDAO.addCustomers(kh);  
+        }
     }
 }

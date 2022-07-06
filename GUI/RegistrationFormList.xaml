@@ -60,12 +60,24 @@
                     materialDesign:HintAssist.Hint="Tìm kiếm phiếu" />
             </Grid>
         </StackPanel>
-        <StackPanel Margin="20,10,20,20">
+        <DockPanel Margin="20,10,20,20" Height="400">
             <DataGrid
                 CanUserAddRows="False"
-                HeadersVisibility="All"
+                IsReadOnly="True"
+                CanUserResizeColumns="False"
+                ColumnWidth="*"
+                CanUserReorderColumns="False"
+                GridLinesVisibility="All"
+                ScrollViewer.CanContentScroll="True" 
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                SelectedItem=""
                 x:Name="RegistrationFormDataGrid">
+                <DataGrid.ItemContainerStyle>
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="MouseDoubleClick" Handler="LoadRegistrationFormDetail"/>
+                    </Style>
+                </DataGrid.ItemContainerStyle>
             </DataGrid>
-        </StackPanel>
+        </DockPanel>
     </StackPanel>
 </Window>

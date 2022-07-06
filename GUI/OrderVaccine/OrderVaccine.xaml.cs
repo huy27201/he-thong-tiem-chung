@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace GUI.OrderVaccine
     /// </summary>
     public partial class OrderVaccine : Window
     {
-        private List<Vaccine> ListVaccine;
+        private List<VaccineDTO> ListVaccine;
         private List<ChiTietPhieuMua> ListChiTietPhieuMua;
         private string MaPhieuMua;
         private string CreateMaPhieuMua()
@@ -40,30 +41,44 @@ namespace GUI.OrderVaccine
         {
             InitializeComponent();
             VaccineBUS vcBUS = new VaccineBUS();
-            //create maphieumua
-            MaPhieuMua = CreateMaPhieuMua();
             ListVaccine = vcBUS.getVaccines();
             ListVaccineDataGrid.ItemsSource = ListVaccine;
         }
-        
+        public OrderVaccine(List<ChiTietPhieuMua> listctphieumua, string maphieumua)
+        {
+            ListChiTietPhieuMua = listctphieumua;
+            MaPhieuMua = maphieumua;
+        }
         private void Huy_Click(object sender, RoutedEventArgs e)
         {
+            if (MaPhieuMua != "")
+            {
+                PhieuMuaBUS pmbus = new PhieuMuaBUS();
+                pmbus.deletePhieuMua(MaPhieuMua);
+            }
             this.Close();
         }
 
         private void TiepTuc_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in ListVaccineDataGrid.ItemsSource)
-            {
-            }
-            //Information form = new Information(ListChiTietPhieuMua, MaPhieuMua);
-            //form.Show();
-            //Close();
+            Information form = new Information(ListChiTietPhieuMua, MaPhieuMua);
+            form.Show();
+            Close();
         }
 
         private void ThemVaccine_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (MaPhieuMua == "")
+            {
+                MaPhieuMua = CreateMaPhieuMua();
+                PhieuMua pm = new PhieuMua()
+                {
+                    MaPhieuMua = this.MaPhieuMua
+                };
+                PhieuMuaBUS pmBus = new PhieuMuaBUS();
+                pmBus.addPhieuMua(pm);
+            }
+
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
