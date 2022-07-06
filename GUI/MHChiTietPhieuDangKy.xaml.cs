@@ -22,7 +22,6 @@ namespace GUI
     /// </summary>
     public partial class RegistrationFormList : Window
     {
-        private PhieuDangKyBUS phieuDangKyBUS;
         private List<string> registrationFormStatusList;
         private List<PhieuDangKyDTO> registrationForms;
         public RegistrationFormList()
@@ -36,7 +35,7 @@ namespace GUI
             };
             RegistrationFormStatusComboBox.ItemsSource = registrationFormStatusList;
 
-            registrationForms = PhieuDangKyBUS.loadDSPhieuDangKy();
+            registrationForms = BUS.PhieuDangKy.loadDSPhieuDangKy();
             RegistrationFormDataGrid.ItemsSource = registrationForms;
         }
         private void LoadRegistrationFormDetail(object sender, MouseButtonEventArgs e)

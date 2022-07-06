@@ -30,6 +30,20 @@ namespace BUS
         public static void updateNguoiGiamHo(KhachHang kh, string magh)
         {
             CustomerDAO.updateNguoiGiamHoDAO(kh, magh);
+        public bool checkMAKH(string MaKH)
+        {
+            if(customerDAO.findCustomers(MaKH) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void addCustomers(KhachHang kh)
+        {
+            customerDAO.addCustomers(kh);  
         }
     }
 }

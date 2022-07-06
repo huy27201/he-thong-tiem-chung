@@ -15,20 +15,14 @@ using System.Windows.Shapes;
 namespace GUI
 {
     /// <summary>
-    /// Interaction logic for RegistrationFormDetail.xaml
+    /// Interaction logic for MHDangKyLichRanh.xaml
     /// </summary>
-    public partial class RegistrationFormDetail : Window
+    public partial class MHDangKyLichRanh : Window
     {
-        private string maPhieuDangKy;
-        public RegistrationFormDetail()
+        public MHDangKyLichRanh()
         {
             InitializeComponent();
         }
-        public RegistrationFormDetail(string maPhieuDangKy) : this()
-        {
-            this.maPhieuDangKy = maPhieuDangKy;
-        }
-
         private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)
         {
             RegistrationFormList registrationFormListWindow = new RegistrationFormList();

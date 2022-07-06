@@ -1,20 +1,11 @@
-﻿<Window x:Class="GUI.RegistrationFormDetail"
+﻿<Window x:Class="GUI.OrderVaccine.WaitForApprove"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GUI"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:GUI.OrderVaccine"
         mc:Ignorable="d"
-        Title="Hệ thống tiêm chủng" Height="600" Width="900"
-        ResizeMode="NoResize"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="16"
-        TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        Title="WaitForApprove" Height="600" Width="900">
     <StackPanel Orientation="Vertical">
         <StackPanel Margin="0,5,0,5"  Orientation="Horizontal">
             <TextBlock
@@ -26,7 +17,7 @@
                 Foreground="#888"
                 TextDecorations="Underline"
                 Cursor="Hand"
-                MouseLeftButtonDown="ReturnToRegistrationFormList"/>
+                />
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock
@@ -47,27 +38,19 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <StackPanel 
-                    Orientation="Horizontal"
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                     Grid.Row="0" 
                     Grid.Column="0" 
-                    Grid.ColumnSpan="2">
-                    <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.ColumnSpan="2"
                     Padding="5"
-                    Text="Mã Khách hàng:" 
+                    Text="Mã Khách hàng" 
                     Foreground="#1C2ECE" />
-                    <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Padding="5"
-                    Name="TenKhachHang" />
-                </StackPanel>
                 <TextBlock 
                     Style="{StaticResource MaterialDesignBody1TextBlock}"
                     Grid.Row="1" 
@@ -104,67 +87,35 @@
                     Padding="5"
                     Text="Địa chỉ" 
                     Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Grid.Row="4" 
-                    Grid.Column="0" 
-                    Grid.ColumnSpan="2"
-                    Padding="5"
-                    Text="Giám hộ" 
-                    Foreground="#1C2ECE" />
             </Grid>
         </StackPanel>
         <StackPanel Margin="50,10,50,10">
             <TextBlock
                 Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
-                Text="Thông tin đăng ký tiêm chủng" 
+                Text="Danh sách đặt mua" 
                 FontWeight="Bold"
                 Padding="5"/>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Grid.Row="0" 
-                    Padding="5"
-                    Text="Vaccine" 
-                    Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Grid.Row="1" 
-                    Padding="5"
-                    Text="Loại tiêm" 
-                    Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Grid.Row="2" 
-                    Grid.Column="0" 
-                    Padding="5"
-                    Text="Thời gian tiêm" 
-                    Foreground="#1C2ECE" />
-                <TextBlock 
-                    Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Grid.Row="3" 
-                    Padding="5"
-                    Text="Địa điểm tiêm" 
-                    Foreground="#1C2ECE" />
-            </Grid>
+            <DataGrid
+                CanUserAddRows="False"
+                HeadersVisibility="All"
+                x:Name="WaitForApproveDataGrid">
+            </DataGrid>
         </StackPanel>
         <StackPanel>
             <Button
                 HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-                Content="Xác nhận"
-                Background="#1C2ECE"
+                Content="Hũy danh sách đặt mua"
+                Background="White"
+                Foreground="#1C2ECE"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                Text="Lưu ý: Khi danh sách đã được xác nhận thì không được hủy" 
+                FontWeight="Normal"
+                Padding="5"/>
         </StackPanel>
     </StackPanel>
 </Window>

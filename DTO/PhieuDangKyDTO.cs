@@ -1,4 +1,6 @@
-﻿namespace DTO
+﻿using System.ComponentModel;
+
+namespace DTO
 {
     public class PhieuDangKyDTO
     {
