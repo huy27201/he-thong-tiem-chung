@@ -8,7 +8,7 @@ using DAO;
 
 namespace BUS
 {
-    public class GiamHoBUS
+    public class GiamHo
     {
         public static string createGiamHoBUS(NguoiGiamHo GH)
         {
@@ -16,7 +16,7 @@ namespace BUS
             int count = context.NguoiGiamHos.ToList().Count();
             string magh = string.Concat("ID0", count.ToString());
             GH.MaGiamHo = magh;
-            if (GiamHoDAO.InsertGiamHoDAO(GH))
+            if (DAO.GiamHo.InsertGiamHoDAO(GH))
             {
                 return magh;
             }

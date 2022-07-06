@@ -18,7 +18,7 @@ namespace BUS
         }
         public static List<PhieuDangKyDTO> loadDSPhieuDangKy()
         {
-            return PhieuDangKyDAO.loadDSPhieuDangKy();
+            return DAO.PhieuDangKy.loadDSPhieuDangKy();
         }
     }
 }

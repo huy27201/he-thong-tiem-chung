@@ -71,16 +71,16 @@ namespace GUI
                     newGH.SoDt = txtSDTGH.Text;
                     newGH.HoTen = txtHoTen.Text;
                     newGH.MoiQuanHe = txtQuanHe.Text;
-                    magh = GiamHoBUS.createGiamHoBUS(newGH);
+                    magh = GiamHo.createGiamHoBUS(newGH);
 
                 }
             }
 
             if (magh != null)
             {
-                CustomerBUS.updateNguoiGiamHo(newCus, magh);
+                Customer.updateNguoiGiamHo(newCus, magh);
             }
-            CustomerBUS.createCustomerBUS(newCus);
+            Customer.createCustomerBUS(newCus);
             PhieuDangKy pdk = new PhieuDangKy();
             pdk.MaKh = newCus.MaKh;
             pdk.NgayDk = (DateTime.Now);

@@ -8,11 +8,11 @@ using DAO;
 
 namespace BUS
 {
-    public class VaccineBUS
+    public class Vaccine
     {
-        public static List<Vaccine> getVaccineBUS()
+        public static List<Models.Vaccine> getVaccineBUS()
         {
-            var listVaccine = VaccineDAO.getVaccineDAO();
+            var listVaccine = DAO.Vaccine.getVaccineDAO();
             return listVaccine;
         }
     }
