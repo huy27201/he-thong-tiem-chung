@@ -35,7 +35,7 @@ namespace GUI
             };
             RegistrationFormStatusComboBox.ItemsSource = registrationFormStatusList;
 
-            registrationForms = PhieuDangKyBUS.loadDSPhieuDangKy();
+            registrationForms = BUS.PhieuDangKy.loadDSPhieuDangKy();
             RegistrationFormDataGrid.ItemsSource = registrationForms;
         }
         private void LoadRegistrationFormDetail(object sender, MouseButtonEventArgs e)

@@ -30,7 +30,7 @@ namespace GUI
         public RegistrationFormDetail(string maPhieuDangKy) : this()
         {
             this.maPhieuDangKy = maPhieuDangKy;
-            thongTinPhieuDangKy = PhieuDangKyBUS.loadThongTinPhieuDangKy(maPhieuDangKy);
+            thongTinPhieuDangKy = PhieuDangKy.loadThongTinPhieuDangKy(maPhieuDangKy);
             DataContext = thongTinPhieuDangKy;
 
         }

@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class PhieuDangKyBUS
+    public class PhieuDangKy
     {
         public static List<PhieuDangKyDTO> loadDSPhieuDangKy()
         {
-            return PhieuDangKyDAO.loadDSPhieuDangKy();
+            return PhieuDangKyDB.loadDSPhieuDangKy();
         }
         public static ThongTinPhieuDangKyDTO loadThongTinPhieuDangKy(string maPhieu)
         {
-            return PhieuDangKyDAO.loadThongTinPhieuDangKy(maPhieu);
+            return PhieuDangKyDB.loadThongTinPhieuDangKy(maPhieu);
         }
     }
 }
