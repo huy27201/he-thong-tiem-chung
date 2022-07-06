@@ -19,5 +19,20 @@ namespace BUS
             var customerList = customerDAO.getCustomers();
             return customerList;
         }
+        public bool checkMAKH(string MaKH)
+        {
+            if(customerDAO.findCustomers(MaKH) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void addCustomers(KhachHang kh)
+        {
+            customerDAO.addCustomers(kh);  
+        }
     }
 }

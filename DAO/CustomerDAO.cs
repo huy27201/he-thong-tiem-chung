@@ -16,5 +16,14 @@ namespace DAO
             var customerList = context.KhachHangs.ToList();
             return customerList;
         }
+        public void addCustomers(KhachHang kh)
+        {
+            context.KhachHangs.Add(kh);
+            context.SaveChanges();
+        }
+        public KhachHang findCustomers(string MaKH)
+        {
+            return context.KhachHangs.Find(MaKH);
+        }
     }
 }
