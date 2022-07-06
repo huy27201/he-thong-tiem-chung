@@ -22,11 +22,11 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public CustomerBUS customerBus { get; set; }
+        public Customer customerBus { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            customerBus = new CustomerBUS();
+            customerBus = new Customer();
         }
 
         private void ButtonGetCustomers_Click(object sender, RoutedEventArgs e)

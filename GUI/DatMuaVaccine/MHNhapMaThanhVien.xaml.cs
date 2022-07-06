@@ -21,13 +21,13 @@ namespace GUI.OrderVaccine
     /// </summary>
     public partial class Information : Window
     {
-        private List<ChiTietPhieuMua> ListChiTietPhieuMua;
+        private List<Models.ChiTietPhieuMua> ListChiTietPhieuMua;
         private string MaPhieuMua;
         public Information()
         {
             InitializeComponent();
         }
-        public Information(List<ChiTietPhieuMua> listctphieumua, string maphieumua)
+        public Information(List<Models.ChiTietPhieuMua> listctphieumua, string maphieumua)
         {
             ListChiTietPhieuMua = listctphieumua;
             MaPhieuMua = maphieumua;
@@ -42,13 +42,13 @@ namespace GUI.OrderVaccine
         private void btnTiepTuc_Click(object sender, RoutedEventArgs e)
         {
             string makh = textboxMAKH.Text;
-            CustomerBUS customerbus = new CustomerBUS();
-            PhieuMuaBUS phieumuabus = new PhieuMuaBUS();
+            Customer customerbus = new Customer();
+            BUS.PhieuMua phieumuabus = new BUS.PhieuMua();
             //check makh
             if(customerbus.checkMAKH(makh))
             {
                 MessageBox.Show("Ma khach hang hop le!");
-                PhieuMua pm = new PhieuMua()
+                Models.PhieuMua pm = new Models.PhieuMua()
                 {
                     MaPhieuMua = MaPhieuMua,
                     TrangThai = "Đang chờ",

@@ -23,12 +23,12 @@ namespace GUI.OrderVaccine
     public partial class OrderVaccine : Window
     {
         private List<VaccineDTO> ListVaccine;
-        private List<ChiTietPhieuMua> ListChiTietPhieuMua;
+        private List<Models.ChiTietPhieuMua> ListChiTietPhieuMua;
         private string MaPhieuMua;
         private string CreateMaPhieuMua()
         {
-            PhieuMuaBUS pnBus = new PhieuMuaBUS();
-            List<PhieuMua> ListPhieuMua = pnBus.getPhieuMuas();
+            BUS.PhieuMua pnBus = new BUS.PhieuMua();
+            List<Models.PhieuMua> ListPhieuMua = pnBus.getPhieuMuas();
             int index = ListPhieuMua.Count;
             string MaPhieuMua = "ID";
             for (int i = (int)Math.Floor(Math.Log10(index)) + 1; i < 3; i++)
@@ -40,11 +40,11 @@ namespace GUI.OrderVaccine
         public OrderVaccine()
         {
             InitializeComponent();
-            VaccineBUS vcBUS = new VaccineBUS();
+            BUS.Vaccine vcBUS = new BUS.Vaccine();
             ListVaccine = vcBUS.getVaccines();
             ListVaccineDataGrid.ItemsSource = ListVaccine;
         }
-        public OrderVaccine(List<ChiTietPhieuMua> listctphieumua, string maphieumua)
+        public OrderVaccine(List<Models.ChiTietPhieuMua> listctphieumua, string maphieumua)
         {
             ListChiTietPhieuMua = listctphieumua;
             MaPhieuMua = maphieumua;
@@ -53,7 +53,7 @@ namespace GUI.OrderVaccine
         {
             if (MaPhieuMua != "")
             {
-                PhieuMuaBUS pmbus = new PhieuMuaBUS();
+                BUS.PhieuMua pmbus = new BUS.PhieuMua();
                 pmbus.deletePhieuMua(MaPhieuMua);
             }
             this.Close();
@@ -71,11 +71,11 @@ namespace GUI.OrderVaccine
             if (MaPhieuMua == "")
             {
                 MaPhieuMua = CreateMaPhieuMua();
-                PhieuMua pm = new PhieuMua()
+                Models.PhieuMua pm = new Models.PhieuMua()
                 {
                     MaPhieuMua = this.MaPhieuMua
                 };
-                PhieuMuaBUS pmBus = new PhieuMuaBUS();
+                BUS.PhieuMua pmBus = new BUS.PhieuMua();
                 pmBus.addPhieuMua(pm);
             }
 
