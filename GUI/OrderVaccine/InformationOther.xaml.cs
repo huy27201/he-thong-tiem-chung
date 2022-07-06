@@ -47,7 +47,13 @@ namespace GUI.OrderVaccine
 
         private void btnTiepTuc_Click(object sender, RoutedEventArgs e)
         {
-            hoten.Text = "asdawdwad";
+            KhachHang kn = new KhachHang()
+            {
+                HoTen=tbHoTen.Text,
+                NgaySinh=Convert.ToDateTime(tbNgaySinh.Text),
+                DiaChi = tbDiaChi.Text,
+                SoDt = tbSDT.Text
+            };
         }
     }
 }
