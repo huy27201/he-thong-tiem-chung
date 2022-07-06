@@ -7,7 +7,7 @@ using Models;
 
 namespace DAO
 {
-    public class GiamHoDAO
+    public class GiamHo
     {
         public static bool InsertGiamHoDAO(NguoiGiamHo gh)
         {

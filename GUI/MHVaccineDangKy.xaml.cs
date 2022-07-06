@@ -43,7 +43,7 @@ namespace GUI
         }
         private void loadDanhSachVX()
         {
-            cbbTenVacxin.ItemsSource = VaccineBUS.getVaccineBUS();
+            cbbTenVacxin.ItemsSource = BUS.Vaccine.getVaccineBUS();
         }
         private void btnThemVX_Click(object sender, RoutedEventArgs e)
         {

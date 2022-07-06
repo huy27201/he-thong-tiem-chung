@@ -7,9 +7,9 @@ using Models;
 
 namespace DAO
 {
-    public class VaccineDAO
+    public class Vaccine
     {
-        public static List<Vaccine> getVaccineDAO()
+        public static List<Models.Vaccine> getVaccineDAO()
         {
             HTTiemChungDBContext context = new HTTiemChungDBContext();
             var customerList = context.Vaccines.ToList();
