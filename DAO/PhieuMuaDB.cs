@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class PhieuMuaDAO
+    public class PhieuMuaDB
     {
         HTTiemChungDBContext context = new HTTiemChungDBContext();
 

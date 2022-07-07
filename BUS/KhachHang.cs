@@ -6,15 +6,15 @@ using System.Data;
 
 namespace BUS
 {
-    public class CustomerBUS
+    public class KhachHang
     {
-        public CustomerDAO customerDAO { get; set; }
+        public KhachHangDB customerDAO { get; set; }
 
-        public CustomerBUS()
+        public KhachHang()
         {
-            customerDAO = new CustomerDAO();
+            customerDAO = new KhachHangDB();
         }
-        public List<KhachHang> getCustomerList()
+        public List<Models.KhachHang> getCustomerList()
         {
             var customerList = customerDAO.getCustomers();
             return customerList;
@@ -30,7 +30,7 @@ namespace BUS
                 return false;
             }
         }
-        public void addCustomers(KhachHang kh)
+        public void addCustomers(Models.KhachHang kh)
         {
             customerDAO.addCustomers(kh);  
         }

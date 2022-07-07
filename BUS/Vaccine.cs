@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class VaccineBUS
+    public class Vaccine
     {
-        public VaccineDAO vaccineDAO { get; set; }
+        public VaccineDB vaccineDAO { get; set; }
 
-        public VaccineBUS()
+        public Vaccine()
         {
-            vaccineDAO = new VaccineDAO();
+            vaccineDAO = new VaccineDB();
         }
         public List<VaccineDTO> getVaccines()
         {

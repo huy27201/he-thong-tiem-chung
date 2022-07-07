@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class ChiTietPhieuMuaBUS
+    public class ChiTietPhieuMua
     {
-        ChiTietPhieuMuaDAO ctpmDAO = new ChiTietPhieuMuaDAO();
-        public List<ChiTietPhieuMua> getCTPhieuMuas(string MaPhieuMua)
+        ChiTietPhieuMuaDB ctpmDAO = new ChiTietPhieuMuaDB();
+        public List<Models.ChiTietPhieuMua> getCTPhieuMuas(string MaPhieuMua)
         {
             return ctpmDAO.getCTPhieuMuas(MaPhieuMua);
         }
-        public void addCTPhieuMua(ChiTietPhieuMua ctpm)
+        public void addCTPhieuMua(Models.ChiTietPhieuMua ctpm)
         {
             ctpmDAO.addCTPhieuMua(ctpm);
         }
-        public void addListCTPhieuMua(List<ChiTietPhieuMua> listCTPM)
+        public void addListCTPhieuMua(List<Models.ChiTietPhieuMua> listCTPM)
         {
-            foreach (ChiTietPhieuMua ctpm in listCTPM)
+            foreach (Models.ChiTietPhieuMua ctpm in listCTPM)
             {
                 ctpmDAO.addCTPhieuMua(ctpm);
             }    

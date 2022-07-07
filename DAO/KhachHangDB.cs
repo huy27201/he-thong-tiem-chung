@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DAO
 {
-    public class CustomerDAO
+    public class KhachHangDB
     {
         private HTTiemChungDBContext context = new HTTiemChungDBContext();
 

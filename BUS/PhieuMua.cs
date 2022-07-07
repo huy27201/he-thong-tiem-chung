@@ -8,28 +8,28 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class PhieuMuaBUS
+    public class PhieuMua
     {
-        public PhieuMuaDAO phieumuaDAO { get; set; }
+        public PhieuMuaDB phieumuaDAO { get; set; }
 
-        public PhieuMuaBUS()
+        public PhieuMua()
         {
-            phieumuaDAO = new PhieuMuaDAO();
+            phieumuaDAO = new PhieuMuaDB();
         }
-        public List<PhieuMua> getPhieuMuas()
+        public List<Models.PhieuMua> getPhieuMuas()
         {
             var phieumuaList = phieumuaDAO.getPhieuMuas();
             return phieumuaList;
         }
-        public void addPhieuMua(PhieuMua pm)
+        public void addPhieuMua(Models.PhieuMua pm)
         {
             phieumuaDAO.addPhieuMua(pm);
         }
-        public PhieuMua findPhieuMua(string maPhieuMua)
+        public Models.PhieuMua findPhieuMua(string maPhieuMua)
         {
             return phieumuaDAO.findPhieuMua(maPhieuMua);
         }
-        public void updatePhieuMua(PhieuMua phieuMua)
+        public void updatePhieuMua(Models.PhieuMua phieuMua)
         {
             phieumuaDAO.updatePhieuMua(phieuMua);
         }

@@ -22,16 +22,16 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Customer customerBus { get; set; }
+        public BUS.KhachHang customerBus { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            customerBus = new Customer();
+            customerBus = new BUS.KhachHang();
         }
 
         private void ButtonGetCustomers_Click(object sender, RoutedEventArgs e)
         {
-            List<KhachHang> customerList = customerBus.getCustomerList();
+            List<Models.KhachHang> customerList = customerBus.getCustomerList();
 
             // display
             Name.Text = customerList[0].HoTen;

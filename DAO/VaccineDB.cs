@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class VaccineDAO
+    public class VaccineDB
     {
         HTTiemChungDBContext context = new HTTiemChungDBContext();
 
