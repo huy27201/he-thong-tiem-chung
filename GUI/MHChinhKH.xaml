@@ -41,6 +41,7 @@
             Style="{StaticResource MaterialDesignOutlinedDarkButton}"
             ToolTip="Đặt mua Vaccine"
             Content="Đặt mua Vaccine"
+            Click="Load_MHChonVaccine"
             Height="Auto"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
         <Button

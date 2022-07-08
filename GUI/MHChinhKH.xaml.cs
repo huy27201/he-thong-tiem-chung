@@ -51,5 +51,12 @@ namespace GUI
             mhSapXepLichLamViec.Show();
             Close();
         }
+
+        private void Load_MHChonVaccine(object sender, RoutedEventArgs e)
+        {
+            OrderVaccine.OrderVaccine mh = new OrderVaccine.OrderVaccine();
+            mh.Show();
+            Close();
+        }
     }
 }
