@@ -43,7 +43,7 @@ namespace GUI
         private void LoadRegistrationFormDetail(object sender, MouseButtonEventArgs e)
         {
             string maPhieuDangKy = ((PhieuDangKyDTO)RegistrationFormDataGrid.SelectedItem).MaPhieuDangKy;
-            MHChiTietPhieuDangKy registrationFormDetailScreen = new MHChiTietPhieuDangKy();
+            MHChiTietPhieuDangKy registrationFormDetailScreen = new MHChiTietPhieuDangKy(maPhieuDangKy);
             registrationFormDetailScreen.Show();
             Close();
         }
