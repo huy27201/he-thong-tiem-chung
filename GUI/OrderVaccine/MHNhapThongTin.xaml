@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI.OrderVaccine"
         mc:Ignorable="d"
-        Title="InformationOther" Height="600" Width="800">
+        Title="InformationOther" Height="700" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel Margin="0,5,0,5"  Orientation="Horizontal">
@@ -23,11 +23,18 @@
         </StackPanel>
         <Label Content="ĐIỀN THÔNG TIN" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <RadioButton Content="Quý khách là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,68,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-        <RadioButton Content="Quý khách chưa là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="checkkh" Content="Quý khách chưa là thành viên khách hàng" HorizontalAlignment="Left" Margin="34,106,0,0" VerticalAlignment="Top"/>
         <Label Content="THÔNG TIN NGƯỜI ĐẶT MUA" HorizontalAlignment="Left" Margin="34,140,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <Label Content="DANH SÁCH ĐẶT MUA" HorizontalAlignment="Left" Margin="34,392,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="16" FontStyle="Normal" Foreground="#FF2A3BD1"/>
         <Button Content="Tiếp tục" HorizontalAlignment="Left" Margin="412,347,0,0" VerticalAlignment="Top" Background="#FF2A3BD1" Click="btnTiepTuc_Click" />
-        <DataGrid HorizontalAlignment="Left" Height="150" Margin="34,421,0,0" VerticalAlignment="Top" Width="756" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid x:Name="ListVaccineToBuyDataGrid" d:ItemsSource="{Binding ListChiTietPhieuMuaDTO}" Margin="40,450,40,50" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" GridLinesVisibility="None">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã vaccine" Width="*"  Binding="{Binding MaVaccine}" />
+                <DataGridTextColumn Header="Tên vaccine/Gói vaccine" Width="*" Binding="{Binding TenVaccine}" />
+                <DataGridTextColumn Header="Đơn giá" Width="*" Binding="{Binding Gia}" />
+                <DataGridTextColumn Header="Lượng" Width="*" Binding="{Binding SoLuong}" />
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="Họ và tên" HorizontalAlignment="Left" Margin="58,175,0,0" VerticalAlignment="Top"/>
         <Label Content="Ngày sinh" HorizontalAlignment="Left" Margin="58,246,0,0" VerticalAlignment="Top"/>
         <Label Content="Số điện thoại" HorizontalAlignment="Left" Margin="58,322,0,0" VerticalAlignment="Top"/>

@@ -1,5 +1,6 @@
 ﻿using BUS;
 using DTO;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,28 +18,31 @@ using System.Windows.Shapes;
 namespace GUI
 {
     /// <summary>
-    /// Interaction logic for RegistrationFormDetail.xaml
+    /// Interaction logic for RegistrationFormList.xaml
     /// </summary>
-    public partial class RegistrationFormDetail : Window
+    public partial class RegistrationFormList : Window
     {
-        private string maPhieuDangKy;
-        private ThongTinPhieuDangKyDTO thongTinPhieuDangKy;
-        public RegistrationFormDetail()
+        private List<string> registrationFormStatusList;
+        private List<PhieuDangKyDTO> registrationForms;
+        public RegistrationFormList()
         {
             InitializeComponent();
-        }
-        public RegistrationFormDetail(string maPhieuDangKy) : this()
-        {
-            this.maPhieuDangKy = maPhieuDangKy;
-            thongTinPhieuDangKy = PhieuDangKy.loadThongTinPhieuDangKy(maPhieuDangKy);
-            DataContext = thongTinPhieuDangKy;
+            registrationFormStatusList = new List<string>()
+            {
+                "Tất cả",
+                "Đã duyệt",
+                "Chưa duyệt"
+            };
+            RegistrationFormStatusComboBox.ItemsSource = registrationFormStatusList;
 
+            registrationForms = BUS.PhieuDangKy.loadDSPhieuDangKy();
+            RegistrationFormDataGrid.ItemsSource = registrationForms;
         }
-
-        private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)
+        private void LoadRegistrationFormDetail(object sender, MouseButtonEventArgs e)
         {
-            RegistrationFormList registrationFormListWindow = new RegistrationFormList();
-            registrationFormListWindow.Show();
+            string maPhieuDangKy = ((PhieuDangKyDTO)RegistrationFormDataGrid.SelectedItem).MaPhieuDangKy;
+            RegistrationFormDetail registrationFormDetailScreen = new RegistrationFormDetail(maPhieuDangKy);
+            registrationFormDetailScreen.Show();
             Close();
         }
     }

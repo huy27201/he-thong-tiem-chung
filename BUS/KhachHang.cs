@@ -30,6 +30,10 @@ namespace BUS
                 return false;
             }
         }
+        public Models.KhachHang getKhachHang(string MaKH)
+        {
+            return customerDAO.findCustomers(MaKH);
+        }
         public void addCustomers(Models.KhachHang kh)
         {
             customerDAO.addCustomers(kh);  

@@ -26,7 +26,7 @@
                 TextAlignment="Center" 
                 Foreground="#1C2ECE"/>
         </StackPanel>
-        <StackPanel Margin="50,50,50,10">
+        <StackPanel Margin="50,50,50,30">
             <TextBlock
                 Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                 Text="Thông tin cá nhân" 
@@ -37,9 +37,10 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
@@ -53,6 +54,14 @@
                     Foreground="#1C2ECE" />
                 <TextBlock 
                     Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="0" 
+                    Grid.Column="1" 
+                    Grid.ColumnSpan="2"
+                    Padding="5"
+                    x:Name="makh"
+                    Foreground="#FF060711" />
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
                     Grid.Row="1" 
                     Grid.Column="0" 
                     Padding="5"
@@ -63,8 +72,22 @@
                     Grid.Row="1" 
                     Grid.Column="1" 
                     Padding="5"
+                    x:Name="hoten"
+                    Foreground="#FF060711" />
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="1" 
+                    Grid.Column="2" 
+                    Padding="5"
                     Text="Điện thoại" 
                     Foreground="#1C2ECE" />
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="1" 
+                    Grid.Column="3" 
+                    Padding="5"
+                    x:Name="dienthoai"
+                    Foreground="#FF060711" />
                 <TextBlock 
                     Style="{StaticResource MaterialDesignBody1TextBlock}"
                     Grid.Row="2" 
@@ -77,16 +100,24 @@
                     Grid.Row="2" 
                     Grid.Column="1" 
                     Padding="5"
-                    Text="Giới tính" 
-                    Foreground="#1C2ECE" />
+                    x:Name="ngaythang"
+                    Foreground="#FF060711" />
                 <TextBlock 
                     Style="{StaticResource MaterialDesignBody1TextBlock}"
-                    Grid.Row="3" 
-                    Grid.Column="0" 
+                    Grid.Row="2" 
+                    Grid.Column="2" 
                     Grid.ColumnSpan="2"
                     Padding="5"
                     Text="Địa chỉ" 
                     Foreground="#1C2ECE" />
+                <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Grid.Row="2" 
+                    Grid.Column="3" 
+                    Grid.ColumnSpan="2"
+                    Padding="5"
+                    x:Name="diachi"
+                    Foreground="#FF060711" />
             </Grid>
         </StackPanel>
         <StackPanel Margin="50,10,50,10">
@@ -95,13 +126,20 @@
                 Text="Danh sách đặt mua" 
                 FontWeight="Bold"
                 Padding="5"/>
-            <DataGrid
-                CanUserAddRows="False"
-                HeadersVisibility="All"
-                x:Name="WaitForApproveDataGrid">
+            <DataGrid x:Name="ListVaccineToBuyDataGrid" d:ItemsSource="{Binding ListChiTietPhieuMuaDTO}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" GridLinesVisibility="None">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã vaccine" Width="*"  Binding="{Binding MaVaccine}" />
+                    <DataGridTextColumn Header="Tên vaccine/Gói vaccine" Width="*" Binding="{Binding TenVaccine}" />
+                    <DataGridTextColumn Header="Đơn giá" Width="*" Binding="{Binding Gia}" />
+                    <DataGridTextColumn Header="Lượng" Width="*" Binding="{Binding SoLuong}" />
+                </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
         <StackPanel>
+            <TextBlock 
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    x:Name="tinhtrang"
+                    Foreground="#FF0FF435" TextAlignment="Center" />
             <Button
                 HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -109,7 +147,7 @@
                 Content="Hũy danh sách đặt mua"
                 Background="White"
                 Foreground="#1C2ECE"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Click="Huy_Click" />
             <TextBlock
                 HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignSubtitle1TextBlock}"

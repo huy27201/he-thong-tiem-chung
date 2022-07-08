@@ -28,5 +28,9 @@ namespace DAO
                 );
             return vaccineList.ToList();
         }
+        public Vaccine getVaccine(string mavc)
+        {
+            return context.Vaccines.FirstOrDefault(x => x.MaVaccine == mavc);
+        }
     }
 }

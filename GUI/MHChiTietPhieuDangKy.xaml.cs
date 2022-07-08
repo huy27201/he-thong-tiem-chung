@@ -1,6 +1,5 @@
 ﻿using BUS;
 using DTO;
-using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,31 +17,28 @@ using System.Windows.Shapes;
 namespace GUI
 {
     /// <summary>
-    /// Interaction logic for RegistrationFormList.xaml
+    /// Interaction logic for RegistrationFormDetail.xaml
     /// </summary>
-    public partial class RegistrationFormList : Window
+    public partial class RegistrationFormDetail : Window
     {
-        private List<string> registrationFormStatusList;
-        private List<PhieuDangKyDTO> registrationForms;
-        public RegistrationFormList()
+        private string maPhieuDangKy;
+        private ThongTinPhieuDangKyDTO thongTinPhieuDangKy;
+        public RegistrationFormDetail()
         {
             InitializeComponent();
-            registrationFormStatusList = new List<string>()
-            {
-                "Tất cả",
-                "Đã duyệt",
-                "Chưa duyệt"
-            };
-            RegistrationFormStatusComboBox.ItemsSource = registrationFormStatusList;
-
-            registrationForms = BUS.PhieuDangKy.loadDSPhieuDangKy();
-            RegistrationFormDataGrid.ItemsSource = registrationForms;
         }
-        private void LoadRegistrationFormDetail(object sender, MouseButtonEventArgs e)
+        public RegistrationFormDetail(string maPhieuDangKy) : this()
         {
-            string maPhieuDangKy = ((PhieuDangKyDTO)RegistrationFormDataGrid.SelectedItem).MaPhieuDangKy;
-            RegistrationFormDetail registrationFormDetailScreen = new RegistrationFormDetail(maPhieuDangKy);
-            registrationFormDetailScreen.Show();
+            this.maPhieuDangKy = maPhieuDangKy;
+            thongTinPhieuDangKy = PhieuDangKy.loadThongTinPhieuDangKy(maPhieuDangKy);
+            DataContext = thongTinPhieuDangKy;
+
+        }
+
+        private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)
+        {
+            RegistrationFormList registrationFormListWindow = new RegistrationFormList();
+            registrationFormListWindow.Show();
             Close();
         }
     }

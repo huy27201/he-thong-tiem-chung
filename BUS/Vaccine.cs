@@ -22,5 +22,9 @@ namespace BUS
             var vaccineList = vaccineDAO.getVaccines();
             return vaccineList;
         }
+        public Models.Vaccine getVaccine(string mavc)
+        {
+            return vaccineDAO.getVaccine(mavc);
+        }
     }
 }
