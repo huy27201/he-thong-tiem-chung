@@ -35,7 +35,7 @@ namespace GUI
         }
         private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)
         {
-            RegistrationFormList registrationFormListWindow = new RegistrationFormList();
+            MHDanhSachPhieuDangKy registrationFormListWindow = new MHDanhSachPhieuDangKy();
             registrationFormListWindow.Show();
             Close();
         }
@@ -78,10 +78,10 @@ namespace GUI
 
             if (magh != null)
             {
-                Customer.updateNguoiGiamHo(newCus, magh);
+                CustomerBUS.updateNguoiGiamHo(newCus, magh);
             }
-            Customer.createCustomerBUS(newCus);
-            PhieuDangKy pdk = new PhieuDangKy();
+            CustomerBUS.createCustomerBUS(newCus);
+            Models.PhieuDangKy pdk = new Models.PhieuDangKy();
             pdk.MaKh = newCus.MaKh;
             pdk.NgayDk = (DateTime.Now);
             

@@ -8,11 +8,11 @@ namespace BUS
 {
     public class CustomerBUS
     {
-        public Customer customerDAO { get; set; }
+        public CustomerDB customerDAO { get; set; }
 
         public CustomerBUS()
         {
-            customerDAO = new Customer();
+            customerDAO = new CustomerDB();
         }
         public List<KhachHang> getCustomerList()
         {
@@ -21,7 +21,7 @@ namespace BUS
         }
         public static bool createCustomerBUS(KhachHang KH)
         {
-            if (Customer.InsertCustomerDAO(KH) != null)
+            if (CustomerDB.InsertCustomerDAO(KH) != null)
             {
                 return true;
             }
@@ -29,7 +29,8 @@ namespace BUS
         }
         public static void updateNguoiGiamHo(KhachHang kh, string magh)
         {
-            CustomerDAO.updateNguoiGiamHoDAO(kh, magh);
+            CustomerDB.updateNguoiGiamHoDAO(kh, magh);
+        }
         public bool checkMAKH(string MaKH)
         {
             if(customerDAO.findCustomers(MaKH) != null)

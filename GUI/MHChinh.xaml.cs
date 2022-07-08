@@ -23,5 +23,33 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void Load_MHDanhSachPhieuDangKy(object sender, RoutedEventArgs e)
+        {
+            MHDanhSachPhieuDangKy mhDanhSachPhieuDangKy = new MHDanhSachPhieuDangKy();
+            mhDanhSachPhieuDangKy.Show();
+            Close();
+        }
+
+        private void Load_MHDangKyLichRanh(object sender, RoutedEventArgs e)
+        {
+            MHDangKyLichRanh mhDangKyLichRanh = new MHDangKyLichRanh();
+            mhDangKyLichRanh.Show();
+            Close();
+        }
+
+        private void Load_MHXemLichLamViec(object sender, RoutedEventArgs e)
+        {
+            MHXemLichLamViec mhXemLichLamViec = new MHXemLichLamViec(); 
+            mhXemLichLamViec.Show();
+            Close();
+        }
+
+        private void Load_MHSapXepLichLamViec(object sender, RoutedEventArgs e)
+        {
+            MHSapXepLichLamViec mhSapXepLichLamViec = new MHSapXepLichLamViec();
+            mhSapXepLichLamViec.Show();
+            Close();
+        }
     }
 }

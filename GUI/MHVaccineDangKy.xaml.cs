@@ -37,13 +37,13 @@ namespace GUI
         }
         private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)
         {
-            RegistrationFormList registrationFormListWindow = new RegistrationFormList();
+            MHDanhSachPhieuDangKy registrationFormListWindow = new MHDanhSachPhieuDangKy();
             registrationFormListWindow.Show();
             Close();
         }
         private void loadDanhSachVX()
         {
-            cbbTenVacxin.ItemsSource = BUS.Vaccine.getVaccineBUS();
+            //cbbTenVacxin.ItemsSource = BUS.Vaccine.getVaccineBUS();
         }
         private void btnThemVX_Click(object sender, RoutedEventArgs e)
         {

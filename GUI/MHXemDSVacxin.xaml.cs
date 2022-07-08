@@ -25,7 +25,7 @@ namespace GUI
         }
         private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)
         {
-            RegistrationFormList registrationFormListWindow = new RegistrationFormList();
+            MHDanhSachPhieuDangKy registrationFormListWindow = new MHDanhSachPhieuDangKy();
             registrationFormListWindow.Show();
             Close();
         }

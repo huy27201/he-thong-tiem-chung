@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DAO
 {
-    public class CustomerDAO
+    public class CustomerDB
     {
         private HTTiemChungDBContext context = new HTTiemChungDBContext();
 
@@ -51,8 +51,6 @@ namespace DAO
             }
             return false;
         }
-    
-}
         public void addCustomers(KhachHang kh)
         {
             context.KhachHangs.Add(kh);
@@ -62,5 +60,5 @@ namespace DAO
         {
             return context.KhachHangs.Find(MaKH);
         }
-    }
+    }  
 }

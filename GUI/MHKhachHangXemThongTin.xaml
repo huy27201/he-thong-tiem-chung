@@ -45,7 +45,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock
                 Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-                Text="DANH SÁCH PHIẾU ĐĂNG KÝ" wei
+                Text="DANH SÁCH PHIẾU ĐĂNG KÝ"
                 Foreground="#1C2ECE" Margin="83,208,261,-208" Grid.Column="1"/>
             </Grid>
         </StackPanel>

@@ -27,7 +27,7 @@ namespace GUI.OrderVaccine
         private string MaPhieuMua;
         private string CreateMaPhieuMua()
         {
-            BUS.PhieuMua pnBus = new BUS.PhieuMua();
+            BUS.PhieuMuaBUS pnBus = new BUS.PhieuMuaBUS();
             List<Models.PhieuMua> ListPhieuMua = pnBus.getPhieuMuas();
             int index = ListPhieuMua.Count;
             string MaPhieuMua = "ID";
@@ -53,7 +53,7 @@ namespace GUI.OrderVaccine
         {
             if (MaPhieuMua != "")
             {
-                BUS.PhieuMua pmbus = new BUS.PhieuMua();
+                BUS.PhieuMuaBUS pmbus = new BUS.PhieuMuaBUS();
                 pmbus.deletePhieuMua(MaPhieuMua);
             }
             this.Close();
@@ -75,7 +75,7 @@ namespace GUI.OrderVaccine
                 {
                     MaPhieuMua = this.MaPhieuMua
                 };
-                BUS.PhieuMua pmBus = new BUS.PhieuMua();
+                BUS.PhieuMuaBUS pmBus = new BUS.PhieuMuaBUS();
                 pmBus.addPhieuMua(pm);
             }
 

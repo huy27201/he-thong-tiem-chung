@@ -42,8 +42,8 @@ namespace GUI.OrderVaccine
         private void btnTiepTuc_Click(object sender, RoutedEventArgs e)
         {
             string makh = textboxMAKH.Text;
-            Customer customerbus = new Customer();
-            BUS.PhieuMua phieumuabus = new BUS.PhieuMua();
+            CustomerBUS customerbus = new CustomerBUS();
+            BUS.PhieuMuaBUS phieumuabus = new PhieuMuaBUS();
             //check makh
             if(customerbus.checkMAKH(makh))
             {
