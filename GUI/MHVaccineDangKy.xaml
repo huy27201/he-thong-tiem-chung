@@ -1,4 +1,4 @@
-﻿<Window x:Class="GUI.FormSignUpVaccine"
+﻿<Window x:Class="GUI.MHVaccineDangKy"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -91,7 +91,7 @@
                     Grid.Column="1"
                     Grid.Row="0"
                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                    
+                    Loaded="LoadCBB_Vaccine"
                     Padding="8"
                     Margin="20,7,20,7"/>
                 <ComboBox 
@@ -133,8 +133,9 @@
                 Background="#1C2ECE"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
         </StackPanel>
-        <StackPanel Margin="20,0,20,20" Height="140" >
-            <DataGrid Height="100" Loaded="Load_CTPhieuDK" x:Name="dgvCTPhieuDK"/>
+        <StackPanel Margin="20,0,20,20" Height="160" >
+            <DataGrid Height="100" Loaded="Load_CTPhieuDK" x:Name="dgvCTPhieuDK"
+                      />
 
         </StackPanel>
         <StackPanel >
@@ -146,6 +147,7 @@
                 Content="Đăng ký"
                 Background="#1C2ECE"
                 x:Name="btnDangKy"
+                Click="btnDangKy_Click"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
             />
             <Button 
@@ -155,6 +157,7 @@
                 Content="Xem danh sách vắc xin"
                 Background="#1C2ECE"
                 x:Name="btnXemDSVX"
+                Click="ButXemDSVX_Click"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
             />
         </StackPanel>

@@ -19,31 +19,32 @@ namespace BUS
             var customerList = customerDAO.getCustomers();
             return customerList;
         }
-        public static bool createCustomerBUS(KhachHang KH)
+        public static string createCustomerBUS(KhachHang KH)
         {
             if (Customer.InsertCustomerDAO(KH) != null)
             {
-                return true;
+                return KH.MaKh;
             }
-            return false;
+            return null;
         }
         public static void updateNguoiGiamHo(KhachHang kh, string magh)
         {
             CustomerDAO.updateNguoiGiamHoDAO(kh, magh);
-        public bool checkMAKH(string MaKH)
-        {
-            if(customerDAO.findCustomers(MaKH) != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
-        public void addCustomers(KhachHang kh)
-        {
-            customerDAO.addCustomers(kh);  
-        }
+        //public bool checkMAKH(string MaKH)
+        //{
+        //    if(customerDAO.findCustomers(MaKH) != null)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+        //public void addCustomers(KhachHang kh)
+        //{
+        //    customerDAO.addCustomers(kh);  
+        //}
     }
 }

@@ -19,5 +19,21 @@ namespace BUS
         {
             return PhieuDangKyDB.loadThongTinPhieuDangKy(maPhieu);
         }
+        public static string TaoPhieuDKy(Models.PhieuDangKy phieu)
+        {
+            HTTiemChungDBContext context = new HTTiemChungDBContext();
+            int count = context.PhieuDangKies.ToList().Count();
+            string maph = string.Concat("ID0", count.ToString());
+            phieu.MaPhieuDk = maph;
+            if (DAO.PhieuDangKyDB.taoPhieuDKyDB(phieu))
+            {
+                return maph;
+            }
+            return null;
+        }
+        public static List<Models.PhieuDangKy> load_PhieuDKyCuaKH(string makh)
+        {
+            return DAO.PhieuDangKyDB.loadPhieuDky_KH(makh);
+        }
     }
 }

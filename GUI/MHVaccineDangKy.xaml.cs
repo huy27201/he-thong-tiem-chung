@@ -18,9 +18,9 @@ namespace GUI
     /// <summary>
     /// Interaction logic for SignUpVaccineForm_Info.xaml
     /// </summary>
-    public partial class FormSignUpVaccine : Window
+    public partial class MHVaccineDangKy : Window
     {
-        public FormSignUpVaccine()
+        public MHVaccineDangKy()
         {
 
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace GUI
             btnXacNhan.Click += BtnXacNhan_Click;
 
         }
+        HTTiemChungDBContext ctx = new HTTiemChungDBContext();
 
         private void BtnXacNhan_Click(object sender, RoutedEventArgs e)
         {
@@ -43,10 +44,21 @@ namespace GUI
         }
         private void loadDanhSachVX()
         {
-            cbbTenVacxin.ItemsSource = BUS.Vaccine.getVaccineBUS();
+            cbbTenVacxin.ItemsSource = BUS.Vaccine.DKy_LoadVacxin();
         }
         private void btnThemVX_Click(object sender, RoutedEventArgs e)
         {
+            Models.ChiTietDangKy ctphieu = new Models.ChiTietDangKy();
+            ctphieu.DiaDiem = cbbDiaDiem.SelectedItem.ToString();
+            ctphieu.MaPhieuDk = MHThongTinDangKy.maphieu;
+            ctphieu.MaVaccine = cbbTenVacxin.SelectedItem.ToString();
+            ctphieu.ThoiGianTiem = (DateTime)datePickerNgayTiem.SelectedDate.Value.Date;
+            CTPhieuDangKy.TaoCTPhieuDKy(ctphieu);
+            cbbDiaDiem.SelectedIndex = -1;
+            cbbTenVacxin.SelectedIndex = -1;
+            datePickerNgayTiem.SelectedDate = null;
+            dgvCTPhieuDK.ItemsSource = null;
+            dgvCTPhieuDK.ItemsSource = BUS.CTPhieuDangKy.LoadCTcuaKH(ctphieu.MaPhieuDk).Select(o => new {MaPhieuDangKy = o.MaPhieuDk, MaVaccine = o.MaVaccine, DiaDiemTiem = o.DiaDiem, NgayTiem = o.ThoiGianTiem});
 
         }
 
@@ -71,9 +83,26 @@ namespace GUI
         }
         private void Load_CTPhieuDK(object sender, RoutedEventArgs e)
         {
-            HTTiemChungDBContext ctx = new HTTiemChungDBContext();
-            var result = from c in ctx.PhieuDangKies select new { MaPhieu= c.MaPhieuDk, MaKH = c.MaKh, TongTien = c.TongTien,NgayDangKy = c.NgayDk};
-            dgvCTPhieuDK.ItemsSource = result.ToList();
+            List<Models.ChiTietDangKy> result = new List<Models.ChiTietDangKy>();
+            string maphieu = MHThongTinDangKy.maphieu;
+            result = BUS.CTPhieuDangKy.LoadCTcuaKH(maphieu);
+            dgvCTPhieuDK.ItemsSource = result;
+        }
+
+        private void LoadCBB_Vaccine(object sender, RoutedEventArgs e)
+        {
+            cbbTenVacxin.ItemsSource = BUS.Vaccine.DKy_LoadVacxin();
+        }
+
+        private void ButXemDSVX_Click(object sender, RoutedEventArgs e)
+        {
+            MHXemDSVacxin dsvx = new MHXemDSVacxin();
+            dsvx.Show();
+        }
+
+        private void btnDangKy_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Đăng ký thành công");
         }
     }
 }

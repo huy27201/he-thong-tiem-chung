@@ -19,15 +19,16 @@ namespace GUI
     /// <summary>
     /// Interaction logic for SignUpVaccineFormDetail.xaml
     /// </summary>
-    public partial class FormSignUpVaccine_CustomerInfo : Window
+    public partial class MHThongTinDangKy : Window
     {
-        public FormSignUpVaccine_CustomerInfo()
+        public MHThongTinDangKy()
         {
             InitializeComponent();
             Button btnDangKyTiem = new Button();
             btnDangKyTiem.Click += BtnDangKyTiem_Click;
         }
-
+        public static string maphieu = "";
+        public static string makh = "";
         private void BtnDangKyTiem_Click(object sender, RoutedEventArgs e)
         {
 
@@ -57,7 +58,7 @@ namespace GUI
             newCus.DiaChi = txtDiaChi.Text;
             newCus.NgaySinh = (DateTime)datePickerDOB.SelectedDate.Value.Date;
             string magh = "";
-
+            // kiem tra thong tin nguoi giam ho
             if (!checkIfAdult((DateTime)newCus.NgaySinh))
             {
                 if (txtSDTGH.Text == "" || txtTenGHo.Text == "" || txtQuanHe.Text == "")
@@ -75,19 +76,29 @@ namespace GUI
 
                 }
             }
-
+            // them ma giam ho cho khach hang
             if (magh != null)
             {
-                Customer.updateNguoiGiamHo(newCus, magh);
+                CustomerBUS.updateNguoiGiamHo(newCus, magh);
             }
-            Customer.createCustomerBUS(newCus);
-            PhieuDangKy pdk = new PhieuDangKy();
+            // tao khach hang moi
+            makh = CustomerBUS.createCustomerBUS(newCus);
+            Models.PhieuDangKy pdk = new Models.PhieuDangKy();
             pdk.MaKh = newCus.MaKh;
             pdk.NgayDk = (DateTime.Now);
-            
-            FormSignUpVaccine infovaccine = new FormSignUpVaccine();
+            // tao phieu dang ky moi
+            maphieu = BUS.PhieuDangKy.TaoPhieuDKy(pdk);
+            // hien thi form dang ky vaccine
+            MHVaccineDangKy infovaccine = new MHVaccineDangKy();
             infovaccine.Show();
+            this.Close();
+            MessageBox.Show(String.Concat("Mã khách hàng của bạn là: ", makh));
 
+        }
+
+        private void btnHuy_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

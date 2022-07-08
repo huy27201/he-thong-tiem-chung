@@ -17,9 +17,9 @@ namespace GUI
     /// <summary>
     /// Interaction logic for XemDSVX.xaml
     /// </summary>
-    public partial class VaccineList : Window
+    public partial class MHXemDSVacxin : Window
     {
-        public VaccineList()
+        public MHXemDSVacxin()
         {
             InitializeComponent();
         }
@@ -29,5 +29,33 @@ namespace GUI
             registrationFormListWindow.Show();
             Close();
         }
+
+        private void LoadCBB_LoaiVacxin(object sender, RoutedEventArgs e)
+        {
+            List<string> LoaiVacxin = new List<string>() { "Lẻ", "Gói", "Tất cả" };
+            cbbLoaiVacxin.ItemsSource = LoaiVacxin;
+        }
+
+        private void cbbLoaiVacxin_SelectionChangedCommited(object sender, SelectionChangedEventArgs e)
+        {
+            string loai = cbbLoaiVacxin.SelectedItem.ToString();
+            if (loai == "Lẻ")
+            {
+                dgvDSVX.ItemsSource = BUS.Vaccine.loadVacxinLe();
+                dgvDSVX.Columns[4].MaxWidth = 0;
+            }
+            else if (loai == "Gói")
+            {
+                dgvDSVX.ItemsSource = BUS.Vaccine.loadVacxinGoi();
+                dgvDSVX.Columns[4].MaxWidth = 0;
+            }
+            else
+            {
+                dgvDSVX.ItemsSource = BUS.Vaccine.loadVacxin();
+                dgvDSVX.Columns[4].MaxWidth = 0;
+            }
+        }
+
+
     }
 }
