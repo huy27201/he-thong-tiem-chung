@@ -17,9 +17,9 @@ namespace GUI
     /// <summary>
     /// Interaction logic for MHChinh.xaml
     /// </summary>
-    public partial class MHChinh : Window
+    public partial class MHChinhKH : Window
     {
-        public MHChinh()
+        public MHChinhKH()
         {
             InitializeComponent();
         }

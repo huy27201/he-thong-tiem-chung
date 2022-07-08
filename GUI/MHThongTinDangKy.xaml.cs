@@ -19,9 +19,9 @@ namespace GUI
     /// <summary>
     /// Interaction logic for SignUpVaccineFormDetail.xaml
     /// </summary>
-    public partial class FormSignUpVaccine_CustomerInfo : Window
+    public partial class MHThongTinDangKy : Window
     {
-        public FormSignUpVaccine_CustomerInfo()
+        public MHThongTinDangKy()
         {
             InitializeComponent();
             Button btnDangKyTiem = new Button();

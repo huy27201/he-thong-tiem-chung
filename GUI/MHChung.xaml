@@ -1,4 +1,4 @@
-﻿<Window x:Class="GUI.MHChinh"
+﻿<Window x:Class="GUI.MHChung"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -37,60 +37,22 @@
         <Button
             Margin="10"
             Grid.Row="1"
-            Grid.Column="0"
-            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
-            ToolTip="Đăng ký lịch rảnh"
-            Content="Đăng ký lịch rảnh"
-            Click="Load_MHDangKyLichRanh"
-            Height="Auto"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
-        <Button
-            Margin="10"
-            Grid.Row="1"
             Grid.Column="1"
             Style="{StaticResource MaterialDesignOutlinedDarkButton}"
-            ToolTip="Xem lịch làm việc"
-            Content="Xem lịch làm việc"
-            Click="Load_MHXemLichLamViec"
+            ToolTip="Bạn là nhân viên"
+            Content="Bạn là nhân viên"
+            Click="Load_MHChinhNV"
             Height="Auto"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
-        <Button
-            Margin="10"
-            Grid.Row="1"
-            Grid.Column="2"
-            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
-            ToolTip="Duyệt phiếu đăng ký"
-            Content="Duyệt phiếu đăng ký"
-            Height="Auto"
-            Click="Load_MHDanhSachPhieuDangKy"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
-        <Button
-            Margin="10"
-            Grid.Row="2"
-            Grid.Column="0"
-            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
-            ToolTip="Sắp xếp lịch làm việc"
-            Content="Sắp xếp lịch làm việc"
-            Height="Auto"
-            Click="Load_MHSapXepLichLamViec"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
         <Button
             Margin="10"
             Grid.Row="2"
             Grid.Column="1"
             Style="{StaticResource MaterialDesignOutlinedDarkButton}"
-            ToolTip="Duyệt danh sách đặt mua"
-            Content="Duyệt danh sách đặt mua"
+            ToolTip="Bạn là khách hàng"
+            Content="Bạn là khách hàng"
             Height="Auto"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
-        <Button
-            Margin="10"
-            Grid.Row="2"
-            Grid.Column="2"
-            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
-            ToolTip="Thanh toán"
-            Content="Thanh toán"
-            Height="Auto"
+            Click="Load_MHChinhKH"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
     </Grid>
 </Window>

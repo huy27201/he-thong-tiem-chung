@@ -47,5 +47,12 @@ namespace GUI
             registrationFormDetailScreen.Show();
             Close();
         }
+
+        private void Load_MHChinh(object sender, MouseButtonEventArgs e)
+        {
+            MHChinhNV mh = new MHChinhNV();
+            mh.Show();
+            Close();
+        }
     }
 }

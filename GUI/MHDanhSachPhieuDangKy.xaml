@@ -25,6 +25,7 @@
                 FontWeight="Medium"
                 Foreground="#888"
                 TextDecorations="Underline"
+                MouseDown="Load_MHChinh"
                 Cursor="Hand"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
