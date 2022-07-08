@@ -32,11 +32,18 @@ namespace GUI
             this.maPhieuDangKy = maPhieuDangKy;
             thongTinPhieuDangKy = PhieuDangKy.loadThongTinPhieuDangKy(maPhieuDangKy);
             DataContext = thongTinPhieuDangKy;
-
         }
 
         private void ReturnToRegistrationFormList(object sender, MouseButtonEventArgs e)
         {
+            MHDanhSachPhieuDangKy registrationFormListWindow = new MHDanhSachPhieuDangKy();
+            registrationFormListWindow.Show();
+            Close();
+        }
+
+        private void DuyetPhieu(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Duyệt phiếu đăng ký thành công");
             MHDanhSachPhieuDangKy registrationFormListWindow = new MHDanhSachPhieuDangKy();
             registrationFormListWindow.Show();
             Close();
